@@ -81,13 +81,52 @@ man ls
 
 Click `q` on your keyboard when you're ready to exit the manual page. 
 
-### cd
+### `cd` (change directory)
+Thus far, we have been listing files starting from the same directory. In order to actually move around the system, we need to use a different command. 
+<!-- %fixme not sure how this will work, will we have them git pull the directory first?  -->
+
+Locate the directory with the course files. It's titled `botany-2025-shell`. 
+
+Now run
+```
+ls -lah
+cd examplefiles
+ls -lah
+```
+
+> [!TIP]
+> When using the terminal, you can press [UP]/[DOWN] on your keyboard to access previous commands. Another handy shortcut is using [TAB] to complete file paths. When I type `cd`, I also usually hit `[TAB]` to see the folders that I can move into. When you're presented with multiple folders after pressing `[TAB]`, you can use the [UP]/[DOWN] arrows to select a folder. 
+
+### Terminal shortcuts save time!
+CTRL+U, E, A, up/down, CTRL+C
+
+If you accidentally use `cd examplefiles` instead of `cd examplefiles/`, you will usually end up in the right place. But please note that the trailing `/` indicates that this is a directory. `[TAB]` autocomplete should always include the trailing `/`. By using the `[TAB]` autocomplete shortcut, you can avoid some typo-induced frustration. 
+
+At this point you may have also noticed that you cannot use the cursor to select a spot to edit your input, so it might be frustrating to `[DEL]` all the way back to where you want to edit. You are essentially working on a screen where there is one "insertion point" which you control using the keyboard rather than the mouse. I'm including a few time-saving terminal keyboard shortcuts here that I use all the time.
+
+<!-- | First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  | -->
+
+| Shortcut  | Action |
+| ------------- | ------------- |
+| [Ctrl]+[U]  | Delete line in terminal  |
+| [Ctrl]+[C]  | Cancel command (this is your emergency 'stop' lever!) |
+| [Ctrl]+[R]  | **R**everse search/browse past commands |
+| [Ctrl]+[L]  | c**L**ear the screen  |
+| [Ctrl]+[A]  | Move the insertion point to the st**A**rt of the line |
+| [Ctrl]+[E]  | Move the insertion point to the **E**nd of the line  |
+| [Ctrl]+[W]  | Delete content to the beginning of the last **W**ord  |
+<!-- | [Ctrl]+[C]  | Content Cell  | -->
+
+<!--%fixme source: https://gist.github.com/bradtraversy/cc180de0edee05075a6139e42d5f28ce -->
+
 ### path
 ### `cat`
 ### wild cards
 ### clear, history
-### terminal shortcuts
-CTRL+U, E, A, up/down, CTRL+C
+
 ## Basic commands
 ### `echo`
 ### `cat`
