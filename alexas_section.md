@@ -1,6 +1,8 @@
-# botany-2025-shell, Alexa's section (needs to be edited)
+# botany-2025-shell, Alexa's section
 
-## Welcome
+## Welcome and Learning Objectives
+
+We are dedicated to equity-focused teaching. We will do our best to make the material accessible and transparent to all participants, regardless of background or system type. Please feel free to let us know during the session that if some material is not accessible to you (commands/links not working, teaching too fast, etc.)
 
 This is where the table of contents will go.
 
@@ -98,7 +100,7 @@ ls -lah
 > When using the terminal, you can press [UP]/[DOWN] on your keyboard to access previous commands. Another handy shortcut is using [TAB] to complete file paths. When I type `cd`, I also usually hit `[TAB]` to see the folders that I can move into. When you're presented with multiple folders after pressing `[TAB]`, you can use the [UP]/[DOWN] arrows to select a folder. 
 
 ### Terminal shortcuts save time!
-CTRL+U, E, A, up/down, CTRL+C
+<!-- CTRL+U, E, A, up/down, CTRL+C -->
 
 If you accidentally use `cd examplefiles` instead of `cd examplefiles/`, you will usually end up in the right place. But please note that the trailing `/` indicates that this is a directory. `[TAB]` autocomplete should always include the trailing `/`. By using the `[TAB]` autocomplete shortcut, you can avoid some typo-induced frustration. 
 
@@ -122,9 +124,73 @@ At this point you may have also noticed that you cannot use the cursor to select
 
 <!--%fixme source: https://gist.github.com/bradtraversy/cc180de0edee05075a6139e42d5f28ce -->
 
-### path
+### file paths (`.`, `..`, `/`)
+
+Let's see what's in the folder `examplefiles/alexas_section`
+```
+cd alexas_section/
+ls -lah
+```
+> [!TIP]
+> Notice how the sorting of folders proceeds differently than we would sort them - it is technically alphabetical, but not sequential.
+
+To enter one of these folders, we can use:
+
+```
+cd 11/
+ls -lah
+```
+
+Now that we are here, how can we get back to the main folder? When calling `ls -lah`, you should see a screen like this:
+```
+ls -lah
+total 0
+drwxr-xr-x   3 alexa  staff    96B Feb  6 10:23 .
+drwxr-xr-x  16 alexa  staff   512B Feb  6 10:23 ..
+-rw-r--r--   1 alexa  staff     0B Feb  6 10:23 11.txt
+```
+The `.` and `..` represent the current directory and the parent directory, respectively. These are file paths we can call with `cd` and `ls` just like we used folders. 
+
+
+<!-- | First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  | -->
+
+| Relative path | Call | Explanation |
+| ------------- | ------------- | ------------- |
+| `.`  | `ls .` / `cd .` |Calls current directory, so `cd` and `ls` just show you or take you to the current directory. Note that this is different from `cd` as a standalone call, which will take you back to your home/root directory.|
+| `..`  | `ls ..` / `cd ..` ||
+|`~`| `ls ~/(filepath)` / `cd ~/(filepath)`| `~` is your **root directory**, which means that this is a method for getting an absolute path. Since your root directory should retain the same file structure, you can call full file paths from the root directory without worrying about your currrent location. |
+> [!TIP] 
+> **The difference between absolute and relative file paths.**
+> An absolute file path looks like this: `~/Documents/GitHub/botany-2025-shell/examplefiles/alexas_section/11/11.txt` 
+>
+>but if I have navigated to 
+>
+>` ~/Documents/GitHub/botany-2025-shell/examplefiles/` 
+>
+> already, I can just find this file with 
+>
+> `ls ./11/11.txt` 
+>
+> You can also call 
+>
+>`ls /11/11.txt`
+
+The difference between absolute and relative file paths will matter more later, when you want to be sure of the locations of your files. To maintain consistency in my scripts, I try to use **absolute paths** so I can remember where exactly I ran an analysis. For simple, quick movement around the filesystem, **relative paths** work great. For now, let's use relative paths and I will try to keep things consistent. Locate your github folder, and if you ever get lost, you can always `cd` back to the main github folder using an absolute path. 
+
+I can call 
+```
+cd ~/Documents/GitHub/botany-2025-shell/
+```
+from any location on my computer's file system, and I will return to the main directory for this course. In this way, an absolute path can be an escape lever for you if you get lost. 
+
+> [!TIP]
+> You can also call `pwd` to display a full path for any location you find yourself in. 
+
 ### `cat`
-### wild cards
+### wild cards `*`
 ### clear, history
 
 ## Basic commands
