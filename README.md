@@ -36,8 +36,6 @@ This step sets the variable called `STR` to equal (`=`) the string of characters
 
 Drafting: (from google drive)
 
-</br>
-
 # Ideas for things to talk about
 
 ### Alexa:
@@ -73,8 +71,6 @@ Drafting: (from google drive)
   - Background/foreground: `CTRL+Z`, `bg`, `fg`
 - Wildcards, "globbing" patterns: `*`, `?`, `{}`, `[]`, `[!]`
 - `screen`
-
-</br>
 
 # Useful Links and Tips
 
