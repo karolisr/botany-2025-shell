@@ -6,33 +6,36 @@
  - Participants will be able to understand in general how the shell operates
  - Participants will be able to execute all listed operations in the command line on their laptop
  - When encountering a new package and/or error in the future, participants will know how to get familiar with the software and how to find ways to resolve the error
+   
+### References
+Shotts, W. (2019). *The Linux command line: a complete introduction.* No Starch Press.
 
 ## Working with Packages
 
 ### Identifying Commands
 > do all of these with 2 different commands to see a variety of usage
 #### `type` - Display a command's type
-```
->>> type ls
+```console
+fky:~$ type ls
 ls is an alias for ls -G
->>> type cd
+fky:~$ type cd
 cd is a shell builtin
 ```
 #### `which` - Display an Executable's Location
-```
->>> which raxml
+```console
+fky:~$ which raxml
 /usr/local/bin/raxml
->>> which hybpiper
+fky:~$ which hybpiper
 hybpiper not found
 ```
 ### Getting a Command's Documentation
 #### `help` - Get help from shell builtins (exclusive for linux?)
-```
+```console
 >>> help cd
 ```
 #### `--help` - Display usage information
-```
->>> raxml -h
+```console
+fky:~$ raxml -h
 
 This is RAxML version 8.2.12 released by Alexandros Stamatakis on May 2018.
 
@@ -50,14 +53,14 @@ Charlie Taylor    (UF)
 ......
 ```
 Other varieties of the `-h` command
-```
+```bash
 <package-command> --help
 <package-command> -help
 <package-command> -h
 ```
 #### `man` - Display a program's manual page
-```
->>> man cd
+```console
+fky:~$ man cd
 BUILTIN(1)                 General Commands Manual                BUILTIN(1)
 
 NAME
@@ -74,7 +77,7 @@ NAME
      unset, unsetenv, until, wait, where, which, while – shell built-in
      commands
 ......
->>> man mkdir
+fky:~$ man mkdir
 MKDIR(1)                   General Commands Manual                  MKDIR(1)
 
 NAME
@@ -90,8 +93,8 @@ DESCRIPTION
 ......
 ```
 #### `apropos` - Display appropriate commands
-```
->>> apropos partition
+```console
+fky:~$ apropos partition
 clmdist(1), clm dist(1)  - compute the distance between two or more partitions (clusterings). The distance that is computed can be any of split/join distance, variance of information, or Mirkin metric. clmdist is not in actual fact a program. This manual page documents the behaviour and options of the clm program when invoked in mode dist. The options -h, --apropos, --version, -set, --nop are accessible in all clm modes. They are described in the clm manual page
 fdisk(8)                 - DOS partition maintenance program
 gpt(8)                   - GUID partition table maintenance utility
@@ -102,33 +105,33 @@ pdisk(8)                 - Apple partition table editor
 (END)
 ```
 #### `whatis` - Display one-line manual page descriptions
-```
->>> whatis cd
+```console
+fky:~$ whatis cd
 cd(n)                    - Change working directory
->>> whatis mkdir
+fky:~$ whatis mkdir
 mkdir(1)                 - make directories
 ```
 ### Other helpful commands for package usage
 #### `--version` - Display the installed version of the package
-```
->>> raxml -v
+```console
+fky:~$ raxml -v
 This is RAxML version 8.2.12 released by Alexandros Stamatakis on May 2018.
 ......
->>> java --version
+fky:~$ java --version
 java 15.0.2 2021-01-19
 Java(TM) SE Runtime Environment (build 15.0.2+7-27)
 Java HotSpot(TM) 64-Bit Server VM (build 15.0.2+7-27, mixed mode, sharing)
 ```
 #### `alias` - Rename the package command in your system
-```
->>> type rx
+```console
+fky:~$ type rx
 rx not found
 >>> alias rx="raxml"
->>> rx -h
+fky:~$ rx -h
 This is RAxML version 8.2.12 released by Alexandros Stamatakis on May 2018.
 ...
->>> unalias rx
->>> type rx
+fky:~$ unalias rx
+fky:~$ type rx
 rx not found
 ```
 > [!TIP]
@@ -139,14 +142,14 @@ rx not found
 ### What is a server
 
 ### How to log in
-```
+```console
 ssh <username>@<server-ip>
 ```
 
 ### `wget`
 What does `wget` do 
-```
->>> wget --help
+```console
+fky:~$ wget --help
 GNU Wget 1.25.0, a non-interactive network retriever.
 Usage: wget [OPTION]... [URL]...
 
