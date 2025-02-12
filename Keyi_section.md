@@ -9,28 +9,130 @@
 
 ## Working with Packages
 
-### How to access the package manual in the command line
+### Identifying Commands
 > do all of these with 2 different commands to see a variety of usage
-Try running only the package command first
+#### `type` - Display a command's type
 ```
-<package-command>
+>>> type ls
+ls is an alias for ls -G
+>>> type cd
+cd is a shell builtin
 ```
+#### `which` - Display an Executable's Location
+```
+>>> which raxml
+/usr/local/bin/raxml
+>>> which hybpiper
+hybpiper not found
+```
+### Getting a Command's Documentation
+#### `help` - Get help from shell builtins (exclusive for linux?)
+```
+>>> help cd
+```
+#### `--help` - Display usage information
+```
+>>> raxml -h
 
+This is RAxML version 8.2.12 released by Alexandros Stamatakis on May 2018.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Sarah Lutteropp   (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+Charlie Taylor    (UF)
+......
+```
+Other varieties of the `-h` command
 ```
 <package-command> --help
 <package-command> -help
 <package-command> -h
-man <package-command>
+```
+#### `man` - Display a program's manual page
+```
+>>> man cd
+BUILTIN(1)                 General Commands Manual                BUILTIN(1)
+
+NAME
+     builtin, !, %, ., :, @, [, {, }, alias, alloc, bg, bind, bindkey,
+     break, breaksw, builtins, case, cd, chdir, command, complete, continue,
+     default, dirs, do, done, echo, echotc, elif, else, end, endif, endsw,
+     esac, eval, exec, exit, export, false, fc, fg, filetest, fi, for,
+     foreach, getopts, glob, goto, hash, hashstat, history, hup, if, jobid,
+     jobs, kill, limit, local, log, login, logout, ls-F, nice, nohup,
+     notify, onintr, popd, printenv, printf, pushd, pwd, read, readonly,
+     rehash, repeat, return, sched, set, setenv, settc, setty, setvar,
+     shift, source, stop, suspend, switch, telltc, test, then, time, times,
+     trap, true, type, ulimit, umask, unalias, uncomplete, unhash, unlimit,
+     unset, unsetenv, until, wait, where, which, while – shell built-in
+     commands
+......
+>>> man mkdir
+MKDIR(1)                   General Commands Manual                  MKDIR(1)
+
+NAME
+     mkdir – make directories
+
+SYNOPSIS
+     mkdir [-pv] [-m mode] directory_name ...
+
+DESCRIPTION
+     The mkdir utility creates the directories named as operands, in the
+     order specified, using mode “rwxrwxrwx” (0777) as modified by the
+     current umask(2).
+......
+```
+#### `apropos` - Display appropriate commands
+```
+>>> apropos partition
+clmdist(1), clm dist(1)  - compute the distance between two or more partitions (clusterings). The distance that is computed can be any of split/join distance, variance of information, or Mirkin metric. clmdist is not in actual fact a program. This manual page documents the behaviour and options of the clm program when invoked in mode dist. The options -h, --apropos, --version, -set, --nop are accessible in all clm modes. They are described in the clm manual page
+fdisk(8)                 - DOS partition maintenance program
+gpt(8)                   - GUID partition table maintenance utility
+pdisk(8)                 - Apple partition table editor
+fdisk(8)                 - DOS partition maintenance program
+gpt(8)                   - GUID partition table maintenance utility
+pdisk(8)                 - Apple partition table editor
+(END)
+```
+#### `whatis` - Display one-line manual page descriptions
+```
+>>> whatis cd
+cd(n)                    - Change working directory
+>>> whatis mkdir
+mkdir(1)                 - make directories
 ```
 ### Other helpful commands for package usage
+#### `--version` - Display the installed version of the package
 ```
-# The installed version of the package
-<package-command> --version
-<package-command> -v
-
-# Rename the package command in your system
-alias raxml="raxml-ng"
+>>> raxml -v
+This is RAxML version 8.2.12 released by Alexandros Stamatakis on May 2018.
+......
+>>> java --version
+java 15.0.2 2021-01-19
+Java(TM) SE Runtime Environment (build 15.0.2+7-27)
+Java HotSpot(TM) 64-Bit Server VM (build 15.0.2+7-27, mixed mode, sharing)
 ```
+#### `alias` - Rename the package command in your system
+```
+>>> type rx
+rx not found
+>>> alias rx="raxml"
+>>> rx -h
+This is RAxML version 8.2.12 released by Alexandros Stamatakis on May 2018.
+...
+>>> unalias rx
+>>> type rx
+rx not found
+```
+> [!TIP]
+> To enable the same alias every time you reboot your system, save your `alias` command in your `.zrcsh` `.bashrc` or (sth in windows) files
 
 ## Connecting with Servers
 
