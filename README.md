@@ -68,9 +68,18 @@ Drafting: (from google drive)
   - environmental variables
   - bash configuration files: .bashrc, .profile, etc.
 - Running processes (and manipulation): `ps`, `kill`, `top`, `htop`, `btop`, etc.
+- `time`
   - Background/foreground: `CTRL+Z`, `bg`, `fg`
 - Wildcards, "globbing" patterns: `*`, `?`, `{}`, `[]`, `[!]`
-- `screen`
+- `screen` (should probably go after SSH)
+- Users/privileges.
+  - Default user accounts/groups.
+  - File ownership: user, group, other.
+  - `chown`, etc.
+  - File permissions.
+  - `chmod`, etc.
+  - Superuser, root.
+    - Privilege escalation: `sudo`, `doas`.
 
 # Useful Links and Tips
 
