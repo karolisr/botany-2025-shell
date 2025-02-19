@@ -67,9 +67,9 @@ Drafting: (from google drive)
 - Setup:
   - environmental variables
   - bash configuration files: .bashrc, .profile, etc.
-- Running processes (and manipulation): `ps`, `kill`, `top`, `htop`, `btop`, `lsof`, etc.
+- Running processes (and manipulation): `ps`, `kill`, `top`, `htop`, `lsof`, etc.
 - `time`
-  - Background/foreground: `CTRL+Z`, `bg`, `fg`
+  - Background/foreground: <kbd>⌃ Control</kbd> + <kbd>Z</kbd>, `bg`, `fg`
 - Wildcards, "globbing" patterns: `*`, `?`, `{}`, `[]`, `[!]`
 - `screen` (should probably go after SSH)
 - Users/privileges.
@@ -83,4 +83,5 @@ Drafting: (from google drive)
 
 ## Useful Links and Tips
 
-[Use ShellCheck (editor plugin, or online)](https://www.shellcheck.net)
+- [Use ShellCheck (editor plugin, or online)](https://www.shellcheck.net)
+- [Keyboard shortcut code generator for Markdown (eg.: <kbd>⌘ Command</kbd> + <kbd>⌃ Control</kbd> + <kbd>⌥ Option</kbd> + <kbd>G</kbd>)](https://kbd.hsuan.xyz)
