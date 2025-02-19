@@ -30,15 +30,16 @@ echo $STR
 ```
 
 This step sets the variable called `STR` to equal (`=`) the string of characters `Hello world!`. Then, we can `echo` the contents of this variable by using `$` to specify that we are calling a variable.
-* What happens if you put other text into `STR`?
-* Try setting a different variable like `NAME`?
-* What happens if you forget to use `$`?
+
+- What happens if you put other text into `STR`?
+- Try setting a different variable like `NAME`?
+- What happens if you forget to use `$`?
 
 Drafting: (from google drive)
 
-# Ideas for things to talk about
+## Ideas for things to talk about
 
-### Alexa:
+### Alexa
 
 - Computer and file basics, navigation:
   - `cd`, `ls`, `..`, `clear`
@@ -47,8 +48,7 @@ Drafting: (from google drive)
 - How to google a problem, which stackoverflow answers are good
 - Scripting, variables, loops, reading files.
 
-
-### Keyi:
+### Keyi
 
 - Working with commands: help, version, `man`, `alias`, etc.
 - Remote connections: `ssh`, `wget`, `curl`, `rsync`, `scp`
@@ -56,7 +56,7 @@ Drafting: (from google drive)
 - ChatGPT, debugging
 - Git
 
-### Karolis:
+### Karolis
 
 - Standard streams:
   - input (0, stdin)
@@ -67,7 +67,7 @@ Drafting: (from google drive)
 - Setup:
   - environmental variables
   - bash configuration files: .bashrc, .profile, etc.
-- Running processes (and manipulation): `ps`, `kill`, `top`, `htop`, `btop`, etc.
+- Running processes (and manipulation): `ps`, `kill`, `top`, `htop`, `btop`, `lsof`, etc.
 - `time`
   - Background/foreground: `CTRL+Z`, `bg`, `fg`
 - Wildcards, "globbing" patterns: `*`, `?`, `{}`, `[]`, `[!]`
@@ -81,6 +81,6 @@ Drafting: (from google drive)
   - Superuser, root.
     - Privilege escalation: `sudo`, `doas`.
 
-# Useful Links and Tips
+## Useful Links and Tips
 
 [Use ShellCheck (editor plugin, or online)](https://www.shellcheck.net)
