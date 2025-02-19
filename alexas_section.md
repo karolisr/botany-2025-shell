@@ -1,5 +1,7 @@
 # botany-2025-shell, Alexa's section
-
+<!-- how i made the example files:
+cat Chloroplast_Genes.fa | while IFS= read -r line; do if [[ $line == \>* ]]; then filename="${line:1}.txt"; echo $filename; fi; touch $filename; echo $line >> $filename;  done
+ -->
 ## Welcome and Learning Objectives
 
 We are dedicated to equity-focused teaching. We will do our best to make the material accessible and transparent to all participants, regardless of background or system type. 
@@ -30,13 +32,13 @@ You can change yours if you'd like, but we can get to that later.
 
 ### `ls` (list files)
 Let's run this command first. Type this into the window:
-```
+```bash
 ls
 ```
 
 You'll see a list of the folders and files you have in your root directory!
 
-```
+```bash
 ~ » ls
 AlDente                      Public
 Applications                 Trimmomatic
@@ -50,12 +52,12 @@ Dropbox                      kanboard
 ```
 We can list files from inside each of these folders, too. 
 Try:
-```
+```bash
 ls Desktop
 ```
 To access a folder inside a folder, you can use a `/`. 
 Pick a folder of your choice, or from another place if your desktop is folder-less.
-```
+```bash
 ls Desktop/sra
 ```
 Different options exist for using `ls`. 
@@ -99,7 +101,7 @@ One way to learn more about a command is by using the `man` command!
 You can scroll through the options available for a certain command. 
 The options will range from interesting to entirely obscure. 
 Don't worry if they don't make sense to you.
-```
+```bash
 man ls
 ```
 
@@ -113,7 +115,7 @@ In order to actually move around the system, we need to use a different command.
 Locate the directory with the course files. It's titled `botany-2025-shell`. 
 
 Now run
-```
+```bash
 ls -lah
 cd examplefiles
 ls -lah
@@ -154,7 +156,7 @@ I'm including a few time-saving terminal keyboard shortcuts here that I use all 
 ### file paths (`.`, `..`, `/`)
 
 Let's see what's in the folder `examplefiles/alexas_section`
-```
+```bash
 cd alexas_section/
 ls -lah
 ```
@@ -163,14 +165,14 @@ ls -lah
 
 To enter one of these folders, we can use:
 
-```
+```bash
 cd 11/
 ls -lah
 ```
 
 Now that we are here, how can we get back to the main folder? 
 When calling `ls -lah`, you should see a screen like this:
-```
+```bash
 ls -lah
 total 0
 drwxr-xr-x   3 alexa  staff    96B Feb  6 10:23 .
@@ -188,9 +190,9 @@ These are file paths we can call with `cd` and `ls` just like we used folders.
 
 | Relative path | Call | Explanation |
 | ------------- | ------------- | ------------- |
-| `.`  | `ls .` / `cd .` |Calls current directory, so `cd` and `ls` just show you or take you to the current directory. Note that this is different from `cd` as a standalone call, which will take you back to your home/root directory.|
-| `..`  | `ls ..` / `cd ..` ||
-|`~`| `ls ~/(filepath)` / `cd ~/(filepath)`| `~` is your **root directory**, which means that this is a method for getting an absolute path. Since your root directory should retain the same file structure, you can call full file paths from the root directory without worrying about your currrent location. |
+| `.`  | `ls .` OR `cd .` |Calls current directory, so `cd` and `ls` just show you or take you to the current directory. Note that this is different from `cd` as a standalone call, which will take you back to your home/root directory.|
+| `..`  | `ls ..` OR `cd ..` ||
+|`~`| `ls ~/(filepath)` OR `cd ~/(filepath)`| `~` is your **root directory**, which means that this is a method for getting an absolute path. Since your root directory should retain the same file structure, you can call full file paths from the root directory without worrying about your currrent location. |
 > [!TIP] 
 > **The difference between absolute and relative file paths.**
 > An absolute file path looks like this: `~/Documents/GitHub/botany-2025-shell/examplefiles/alexas_section/11/11.txt` 
@@ -224,7 +226,11 @@ In this way, an absolute path can be an escape lever for you if you get lost.
 
 ### `cat` 🐈 (concatenate and print)
 
-First, navigate to `examplefiles/alexas_section/` from the main github directory.
+`cat` will print out lines of a file, or add to the end of the file. 
+It is most commonly used for the first purpose.
+
+
+To try it out, navigate to `examplefiles/alexas_section/chloro/` from the main github directory.
 
 Now try out `cat` on some files here.
 
@@ -265,28 +271,47 @@ Here are some other useful basic commands.
 And it's named in a way that makes sense! 
 Nice!
 
-```
+```bash
 clear
 ```
 
 
 In the same vein, `history` will simply print the history of the commands you have run.
 
-`history -c` will clear your history, but you shouldn't need to do this.
+```bash
+history 
+#this will show your command history
+history -c 
+#this will clear your history, but you shouldn't need to do this.
+```
+
+
 
 ## More basic commands
 ### `echo`
 <!-- FIXME complete this section-->
 
+`echo` is another one that pretty much does what it says on the tin!
+```bash
+echo "hello world\!"
 ```
-echo hello world
-Set a simple variable and echo it
+when run, you should see something like this:
+```
+alexas_section/chloro [main●] » echo "hello world\!"
+
+
+hello world!
+```
+
+`echo` can also be used to print variables that you've stored like so:
+
+```bash
 ```
 
 ### `touch` (create a file)
 <!-- FIXME complete this section-->
 
-```
+```bash
 create a file
 man touch
 ```
@@ -297,7 +322,7 @@ File extensions are fake.
 <!-- FIXME complete this section-->
 
 
-```
+```bash
 mv file to new folder
 mv rename file to another file
 mv folder
@@ -309,22 +334,25 @@ call ls in old location to ensure that file is moved
 ### `cp` (copy)
 <!-- FIXME complete this section-->
 
+```bash
 
-```
+
 cp file to new location
 cp directory 
 ```
 
 ### `nano` and `vim`
 <!-- FIXME complete this section-->
-
+```bash
 
 ```
-```
+
 
 ### `head` and `tail`
 <!-- FIXME complete this section-->
+```bash
 
+```
 
 ## Problem solving
 <!-- FIXME complete this section-->
