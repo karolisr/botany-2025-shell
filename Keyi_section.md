@@ -137,17 +137,90 @@ rx not found
 > [!TIP]
 > To enable the same alias every time you reboot your system, save your `alias` command in your `.zrcsh` `.bashrc` or (sth in windows) files
 
-## Connecting with Servers
+## Connecting with Remote Hosts
+> problem here: I can demo it but how to let them try?
 
-### What is a server
+### What is a remote host
+Unix-like operating systems have had the capability to be administered remotely via a network. This allows users to access high performance computing without physically manipulating bulky computers. Thus, access remote hosts is an essential ability to have with regards to command line.
 
-### How to log in
+### Checking network connection and remote host ip
+8.8.8.8 is the primary IP address for Google's public DNS server. It's common to use it to check network connection in the shell.
 ```console
-ssh <username>@<server-ip>
+fky:~$ ping 8.8.8.8
+PING 8.8.8.8 (8.8.8.8): 56 data bytes
+64 bytes from 8.8.8.8: icmp_seq=0 ttl=115 time=26.479 ms
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=115 time=17.021 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=115 time=194.726 ms
+...
+```
+You can also use `ping` to check if the ip of your server exist and that it is connected to the network.
+```console
+fky:~$ ping <server-ip>
+PING <server-ip> (<server-ip>): 56 data bytes
+64 bytes from <server-ip>: icmp_seq=0 ttl=55 time=21.033 ms
+64 bytes from <server-ip>: icmp_seq=1 ttl=55 time=54.150 ms
+64 bytes from <server-ip>: icmp_seq=2 ttl=55 time=23.168 ms
+64 bytes from <server-ip>: icmp_seq=3 ttl=55 time=27.657 ms
+...
 ```
 
-### `wget`
-What does `wget` do 
+### Connect to remote hosts with `ssh`
+Secure Shell (SSH) is the standard command to use to connect to remote hosts. It will ask for a password for the remote host:
+```console
+fky:~$ ssh <username>@<server-ip>
+<username>@<server-ip>'s password:
+```
+Example screen for a successful login
+```console
+fky:~$ ssh <username>@<server-ip>
+<username>@<server-ip>'s password:
+Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 6.5.0-44-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+Expanded Security Maintenance for Applications is not enabled.
+
+221 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+8 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+*** System restart required ***
+Web console: https://ubuntu22:9090/ or https://35.2.24.103:9090/
+
+Last login: Mon Feb 17 13:37:23 2025 from 35.2.220.14
+username@ubuntu22:~$ 
+```
+Part of what happens when you establish a connection with a remote host via SSH is that an encrypted tunnel is created between the local and remote systems. Then you can use the shell on the remote host like using the terminal on your local laptop.
+
+To disconnect from the remnote host
+```console
+username@ubuntu22:~$ exit
+logout
+Connection to <server-ip> closed.
+```
+### `rsync`
+
+### `scp`
+The OpenSSH package also includes programs that can make use of an SSH-encrypted tunnel to copy files across the network. `scp` (secure copy) is used much like the familiar cp program to copy files. The most notable difference is that the source or destination pathnames may be preceded with the name of a remote host, followed by a colon character.
+
+> [!TIP]
+> You cannot use `scp` when you are logged onto the remote server
+
+Copying files from remote to local, local to remote, remote to remote, copy entire folder, other common scp options, are the `"` needed?
+```console
+fky:~$ scp <username>@<server-ip>:"/path_to_the_file_to_copy" /path_of_the_local_folder_to_save
+fky:~$ scp -r <username>@<server-ip>:"/path_to_the_folder_to_copy" /path_of_the_local_folder_to_save
+fky:~$ scp -r <username>@<server-ip>:"/path_to_the_folder_to_copy" /path_of_the_local_folder_to_save
+```
+
+### `screen`
+
+### Downloading files from the web and FTP sites with `wget`
+Single files, multiple files, and even entire sites can be downloaded with `wget`.
 ```console
 fky:~$ wget --help
 GNU Wget 1.25.0, a non-interactive network retriever.
@@ -167,10 +240,24 @@ Logging and input file:
   -d,  --debug                     print lots of debugging information
 ...
 ```
+Example of using `wget`
+```console
+fky:~$ wget http://linuxcommand.org/index.php
+--2025-02-18 20:50:52--  http://linuxcommand.org/index.php
+Resolving linuxcommand.org (linuxcommand.org)... 216.105.38.11
+Connecting to linuxcommand.org (linuxcommand.org)|216.105.38.11|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3929 (3.8K) [text/html]
+Saving to: ‘index.php’
 
-### `rsync`
+index.php           100%[=================>]   3.84K  --.-KB/s    in 0s      
 
-### `scp`
+2025-02-18 20:50:52 (35.0 MB/s) - ‘index.php’ saved [3929/3929]
+```
+Note that the URL of FTP sites starts with `ftp://`
+```console
+fky:~$ wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/026/745/355/GCF_026745355.1_EL10.2/
+```
 
 ## Seting up the environment
 
