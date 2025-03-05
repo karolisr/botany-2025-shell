@@ -38,7 +38,7 @@ ls
 
 You'll see a list of the folders and files you have in your root directory!
 
-```bash
+```console
 ~ » ls
 AlDente                      Public
 Applications                 Trimmomatic
@@ -94,7 +94,9 @@ You can combine options, too, by chaining together letters. You cannot chain lon
 | `ls -ltrah`  | Displays files in  `-l` long form,`-t` time-sorted, `-r` reverse sorted (so the most recent is at the bottom where you can see it!), `-a` all files, in a `-h` human-readable form. |
 |`ls -oh`| Displays `-o` long format with no no group information `-h` in human-readable sizes. |
 
-Note also that the order of your letters don't matter. `ls -ltrah` is the same as `ls -latrh`. 
+>[!TIP]
+>Note also that the order of your options doesn't matter. 
+>`ls -ltrah` is the same as `ls -latrh`. 
 
 ### `man` (manual)
 One way to learn more about a command is by using the `man` command! 
@@ -105,7 +107,7 @@ Don't worry if they don't make sense to you.
 man ls
 ```
 
-Click `q` on your keyboard when you're ready to exit the manual page. 
+Click <kbd>Q</kbd> on your keyboard when you're ready to exit the manual page. 
 
 ### `cd` (change directory)
 Thus far, we have been listing files starting from the same directory. 
@@ -122,16 +124,16 @@ ls -lah
 ```
 
 > [!TIP]
-> When using the terminal, you can press [UP]/[DOWN] on your keyboard to access previous commands. Another handy shortcut is using [TAB] to complete file paths. When I type `cd`, I also usually hit `[TAB]` to see the folders that I can move into. When you're presented with multiple folders after pressing `[TAB]`, you can use the [UP]/[DOWN] arrows to select a folder. 
+> When using the terminal, you can press <kbd>Up</kbd>/<kbd>Down</kbd> on your keyboard to access previous commands. Another handy shortcut is using <kbd>Tab</kbd> to complete file paths. When I type `cd`, I also usually hit <kbd>Tab</kbd> to see the folders that I can move into. When you're presented with multiple folders after pressing <kbd>Tab</kbd>, you can use the <kbd>Up</kbd>/<kbd>Down</kbd> arrows to select a folder. 
 
 ### Terminal shortcuts save time!
 <!-- CTRL+U, E, A, up/down, CTRL+C -->
 
 If you accidentally use `cd examplefiles` instead of `cd examplefiles/`, you will usually end up in the right place. 
-But please note that the trailing `/` indicates that this is a directory. `[TAB]` autocomplete should always include the trailing `/`. 
-By using the `[TAB]` autocomplete shortcut, you can avoid some typo-induced frustration. 
+But please note that the trailing `/` indicates that this is a directory. <kbd>Tab</kbd> autocomplete should always include the trailing `/`. 
+By using the `<kbd>Tab</kbd>` autocomplete shortcut, you can avoid some typo-induced frustration. 
 
-At this point you may have also noticed that you cannot use the cursor to select a spot to edit your input, so it might be frustrating to `[DEL]` all the way back to where you want to edit. 
+At this point you may have also noticed that you cannot use the cursor to select a spot to edit your input, so it might be frustrating to `<kbd>DEL</kbd>` all the way back to where you want to edit. 
 You are essentially working on a screen where there is one "insertion point" which you control using the keyboard rather than the mouse. 
 I'm including a few time-saving terminal keyboard shortcuts here that I use all the time.
 
@@ -142,14 +144,14 @@ I'm including a few time-saving terminal keyboard shortcuts here that I use all 
 
 | Shortcut  | Action |
 | ------------- | ------------- |
-| [Ctrl]+[U]  | Delete line in terminal  |
-| [Ctrl]+[C]  | Cancel command (this is your emergency 'stop' lever!) |
-| [Ctrl]+[R]  | **R**everse search/browse past commands |
-| [Ctrl]+[L]  | c**L**ear the screen  |
-| [Ctrl]+[A]  | Move the insertion point to the st**A**rt of the line |
-| [Ctrl]+[E]  | Move the insertion point to the **E**nd of the line  |
-| [Ctrl]+[W]  | Delete content to the beginning of the last **W**ord  |
-<!-- | [Ctrl]+[C]  | Content Cell  | -->
+| <kbd>Ctrl</kbd>+<kbd>U</kbd>  | Delete line in terminal  |
+| <kbd>Ctrl</kbd>+<kbd>C</kbd>  | Cancel command (this is your emergency 'stop' lever!) |
+| <kbd>Ctrl</kbd>+<kbd>R</kbd>  | **R**everse search/browse past commands |
+| <kbd>Ctrl</kbd>+<kbd>L</kbd>  | c**L**ear the screen  |
+| <kbd>Ctrl</kbd>+<kbd>A</kbd>  | Move the insertion point to the st**A**rt of the line |
+| <kbd>Ctrl</kbd>+<kbd>E</kbd>  | Move the insertion point to the **E**nd of the line  |
+| <kbd>Ctrl</kbd>+<kbd>W</kbd>  | Delete content to the beginning of the last **W**ord  |
+<!-- | <kbd>Ctrl</kbd>+<kbd>C</kbd>  | Content Cell  | -->
 
 <!--%fixme source: https://gist.github.com/bradtraversy/cc180de0edee05075a6139e42d5f28ce -->
 
@@ -172,7 +174,7 @@ ls -lah
 
 Now that we are here, how can we get back to the main folder? 
 When calling `ls -lah`, you should see a screen like this:
-```bash
+```console
 ls -lah
 total 0
 drwxr-xr-x   3 alexa  staff    96B Feb  6 10:23 .
@@ -253,14 +255,12 @@ For now, it is enough to know that it forms the basis of matching and finding (a
 For our purposes, an easy  -->
 <!-- FIXME need to read more about this, idk if this use of * is really technically regular expression. -->
 
-In this case we can use `*` as an exclusive matching character. 
-
-```
-This example will have multiple files in one folder with the same beginning to the name.
-
-Another example will have multiple folders with the same file name
-basically ls */3*.txt
-to show that the * can be within the folder name or file name.
+In this case we can use `*` as a matching character. 
+From `examplefiles/alexas_section/chloro/`, try:
+```bash
+ls -lah
+ls -lah *2.txt
+ls -lah rps*.txt
 ```
 
 
@@ -268,6 +268,7 @@ to show that the * can be within the folder name or file name.
 Here are some other useful basic commands.
 
 `clear` is possibly the simplest command you will learn today.
+It clears your screen.
 And it's named in a way that makes sense! 
 Nice!
 
@@ -288,7 +289,7 @@ history -c
 
 
 ## More basic commands
-### `echo`
+### `echo` (print a variable)
 <!-- FIXME complete this section-->
 
 `echo` is another one that pretty much does what it says on the tin!
@@ -296,7 +297,7 @@ history -c
 echo "hello world\!"
 ```
 when run, you should see something like this:
-```
+```console
 alexas_section/chloro [main●] » echo "hello world\!"
 
 
@@ -306,16 +307,52 @@ hello world!
 `echo` can also be used to print variables that you've stored like so:
 
 ```bash
+echo "hello world\!"
+
+my_var="hello everyone\!"
+echo $my_var
 ```
+This is useful for when we don't want to type the same thing multiple times. 
+Setting a variable can be used for `strings`, which are essentially strings of words and are 
+
+#### A short introduction to variables
+<!-- https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-5.html -->
+Variables are a type of data that can be called again after they are declared.
+
+| Variable type  | Description | Example command |
+| ------------- | ------------- | ------------- | 
+| string  | a phrase consising of numbers, letters, spaces, or other characters  | `my_string="hello everyone\!" ; echo $my_string` 
+| number  | an integer or float that can be used in mathematical equations  | `my_num=4 ; echo $(( myv*2 )); my_float=3.5; echo $((my_float+2))`|
+<!-- could also talk about let and (( )) -->
+
+>[!TIP]
+> When writing more than one line of code, you can use an **endline** character (`;`) to indicate a new line.
+>The results of these lines will be the same, try it out!
+>
+>```bash
+>my_var_a="my string is going to print soon!\!" ; echo $my_var
+>```
+>
+>```bash
+>my_var_b="my string will print after I echo it!\!"
+> echo $my_var
+>```
 
 ### `touch` (create a file)
 <!-- FIXME complete this section-->
-
+This is an easy way to create files.
 ```bash
-create a file
 man touch
+mkdir emptyfiles
+cd emptyfiles
+touch helloworld.txt
+ls -lah
+cat helloworld.text #this will not return anything since touch only creates empty files!
+touch file1.txt file2.txt file3.txt
 ```
-Note that you need to add extensions manually, cat will print any file but use .txt since your OS will throw a fit trying to open it. 
+Note that you need to add extensions manually by typing them in. 
+The .txt extension is good for right now, other formats carry certain syntax.
+<!-- cat will print any file text but use .txt since your OS will throw a fit trying to open it.  -->
 File extensions are fake.
 
 ### `mv` (move and rename)
@@ -354,6 +391,12 @@ cp directory
 
 ```
 
+### `wget` and `curl`
+<!-- FIXME complete this section-->
+```bash
+
+```
+
 ## Problem solving
 <!-- FIXME complete this section-->
 
@@ -368,6 +411,69 @@ Sometimes you can find a needle in the haystack by Googling "how to make this th
 You will get the most helpful resources from 
 
 ## Scripting, variables, loops, reading files
+
+## Demonstration of the skills we put together
 <!-- FIXME complete this section-->
+In this example, you will use a line-separated `.txt` file to download some herbarium images.
+Each line in this file will have a link to a photo of an herbarium specimen from the Field Museum, which you can access by clicking the link. 
+Here's an example:
+[https://fm-digital-assets.fieldmuseum.org/2243/650/V0533979F.jpg](https://fm-digital-assets.fieldmuseum.org/2243/650/V0533979F.jpg)
+
+You can always download these by clicking on the link, opening it in the browser, and then saving it to a folder of your choice. 
+
+What if there was an easier way? And what if you want to download 10 of these images? What about 100?
+
+This is where bash comes in handy, because clicking the link and manually saving images becomes tedious quickly, and we rarely work on scales of a few images.
+
+Navigate to `botany-2025-shell/examplefiles/alexas_section/herbariumphotos/`. 
+Check out the `multimedia.txt` file.
+
+```bash
+head multimedia.txt
+```
+Looks like it's <kbd>Tab</kbd> separated, and the image links are in the fourth column.
+We will have to use a bit of bash magic to get the links.
+Let's try downloading one of them.
+```bash
+wget //fm-digital-assets.fieldmuseum.org/2243/650/V0533979F.jpg
+```
+
+Okay, now it's in our main folder.
+If we download all of them like this, it's a bit of effort, and our main folder might get a bit messy.
 
 
+>[!TIP]
+>For information on how to select your own images for downloading, visit https://www.gbif.org/occurrence/search and select images for the species or genus of your choice. 
+> You'll have to make an account to generate and download the `.txt` file.
+>Make sure you're familiar with Creative Commons licenses before using others' images.
+
+
+## Summary
+In this lesson, we covered these commands:
+| Command  | Short description of what it does |
+| ------------- | ------------- |
+| `ls`  | Content  |
+| `man`  | Content  | 
+| `cd`  | Content  | 
+| `cat`  | Content  | 
+|  `clear`  | Content  | 
+| `history`  | Content  | 
+| `echo`  | Content  | 
+| `touch` | Content | 
+| `mv` | Content | 
+| `cp` | Content | 
+| `nano` | Content | 
+| `vim` | Content | 
+| Content | Content | 
+| Content | Content | 
+| Content | Content | 
+| Content | Content | 
+| Content | Content | 
+| Content | Content | 
+| Content | Content | 
+| Content | Content | 
+| Content | Content | 
+| Content | Content | 
+| Content | Content | 
+| Content | Content | 
+| Content | Content | 
