@@ -353,13 +353,72 @@ touch file1.txt file2.txt file3.txt
 Note that you need to add extensions manually by typing them in. 
 The .txt extension is good for right now, other formats carry certain syntax.
 <!-- cat will print any file text but use .txt since your OS will throw a fit trying to open it.  -->
-File extensions are fake.
+<!-- File extensions are fake. -->
+
+
+## `>>` and `>` (redirection)
+Now that we have our empty files, how do we add to them?
+The easiest way is to use redirection operators.
+In the same directory as before:
+```bash
+echo "now my file1 has text" >> file1.txt
+cat file1.txt
+```
+What is the difference between `>>` and `>`?
+Try it for yourself:
+
+```bash
+echo "now my file2 has text" >> file2.txt
+cat file2.txt
+echo "now my file2 has text that is appended" >> file2.txt
+cat file2.txt
+
+echo "now my file3 has text" > file3.txt
+cat file3.txt
+echo "now my file3 has text that is overwritten" > file3.txt
+cat file3.txt
+cat *.txt
+```
+
+`>` overwrites any text existing in the file, while `>>` appends your text to the end of the file.
+When iterating across multiple inputs, it's very useful to write to a file using `>>`. 
+It's a simple way to generate a summary file, or to store information about what you've run so far.
+
+You can also use this with `cat` to overwrite or append files to each other without printing to the terminal.
+
+```bash
+touch file4.txt
+echo "this text comes from file4" > file4.txt
+cat file2.txt
+cat file4.txt >> file2.txt
+cat file2.txt
+cat file1.txt
+cat file4.txt > file1.txt
+cat file2.txt
+```
+>[!TIP]
+>You can create a **new line** in a .txt file by using `\n`. 
+>The backslash `\` indicates special characters and is frequently used for this.
+
+```bash
+touch file5.txt
+myfilecontents="this\ncan\nbe\nhard\nto\nread"
+echo $myfilecontents > file5.txt
+cat file5.txt
+```
+
+**Knowledge check:** what is the difference between 
+`echo file5.txt` and `cat file5.txt`? 
 
 ### `mv` (move and rename)
 <!-- FIXME complete this section-->
 
-
+Starting in the same `emptyfiles` directory as before:
 ```bash
+man mv
+ls -lah
+cd ..
+
 mv file to new folder
 mv rename file to another file
 mv folder
@@ -396,6 +455,7 @@ cp directory
 ```bash
 
 ```
+## Scripting, variables, loops, reading files
 
 ## Problem solving
 <!-- FIXME complete this section-->
@@ -410,7 +470,6 @@ Sometimes you can find a needle in the haystack by Googling "how to make this th
 
 You will get the most helpful resources from 
 
-## Scripting, variables, loops, reading files
 
 ## Demonstration of the skills we put together
 <!-- FIXME complete this section-->
@@ -448,7 +507,7 @@ If we download all of them like this, it's a bit of effort, and our main folder 
 >Make sure you're familiar with Creative Commons licenses before using others' images.
 
 
-## Summary
+## Summary and cheat sheet
 In this lesson, we covered these commands:
 | Command  | Short description of what it does |
 | ------------- | ------------- |
