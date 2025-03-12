@@ -3,7 +3,7 @@
 cat Chloroplast_Genes.fa | while IFS= read -r line; do if [[ $line == \>* ]]; then filename="${line:1}.txt"; echo $filename; fi; touch $filename; echo $line >> $filename;  done
  -->
 ## Welcome and Learning Objectives
-
+<!-- TODO: explain comment pound signs -->
 We are dedicated to equity-focused teaching. We will do our best to make the material accessible and transparent to all participants, regardless of background or system type. 
 Please feel free to let us know during the session that if some material is not accessible to you (commands/links not working, teaching too fast, etc.)
 
@@ -409,32 +409,74 @@ cat file5.txt
 
 **Knowledge check:** what is the difference between 
 `echo file5.txt` and `cat file5.txt`? 
+Run each one yourself to check.
 
 ### `mv` (move and rename)
 <!-- FIXME complete this section-->
 
-Starting in the same `emptyfiles` directory as before:
+Now go up a directory and find the `chloro` folder. 
 ```bash
+cd ../chloro/
 man mv
-ls -lah
-cd ..
-
-mv file to new folder
-mv rename file to another file
-mv folder
-options (-d, -r)
-call ls in old location to ensure that file is moved
-
 ```
+`mv` will move and rename files. 
 
+Let's make a new folder and move files into it.
+Feel free to open these folders in your normal file browser (Finder for MacOS users) to confirm that you have moved the file.
+Once you begin using `mv`, you will hopefully realize how useful it is, especially when combined with the **wildcard character** `*`.
+
+
+
+```bash
+ls -lah
+mkdir ndh
+ls -lah
+
+mv ndhA.txt ndh/
+ls -lah ndh/
+#the file has moved!
+#check that it's not in the main folder
+ls -lah
+ls -lah ndhA.txt
+ls -lah ndh/ndhA.txt
+```
+You can use `mv` with multiple files at once, essentially performing a simple search and moving the files.
+```bash
+ls -lah ndh*.txt
+mv ndh*
+mv ndh*.txt ndh/
+ls -lah ndh*.txt
+ls -lah ndh/
+```
+Using `mv` to rename files is as simple as "moving" the file to a new location with a different name. 
+```bash
+cd ndh/
+cat ndhA.txt
+mv ndhA.txt ndhA_chloro.txt
+ls -lah
+cat ndhA.txt
+cat ndhA_chloro.txt
+#this is just to show that the file is the same after it is moved!
+```
 ### `cp` (copy)
 <!-- FIXME complete this section-->
+You might need to copy files like you would in a file browser. 
+I usually use copying to make a backup or test folder for a script, when you're not sure if your code will work the way you want it to.
+It's a good idea to make a backup of your files in other ways, but this redundancy can definitely save you some trouble. 
 
+Let's make a backup of the `chloro` folder.
 ```bash
+cd ../..
 
-
-cp file to new location
-cp directory 
+man cp 
+cp -R chloro chloro2 
+#-R option allows you to copy a directory and its subfolders
+```
+If you just want to copy certain files, you can select them using the `*` wildcard.
+```bash
+cd chloro2/
+mkdir ps
+cp ps*.txt ps # copy all files starting with "ps" and ending with ".txt" to the new ps directory
 ```
 
 ### `nano` and `vim`

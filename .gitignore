@@ -1,3 +1,5 @@
 *.code-workspace
 .DS_Store
 *.html
+/examplefiles/alexas_section/chloro2
+/examplefiles/alexas_section/chloro/ndh
