@@ -202,7 +202,6 @@ username@ubuntu22:~$ exit
 logout
 Connection to <server-ip> closed.
 ```
-### `rsync`
 
 ### `scp`
 The OpenSSH package also includes programs that can make use of an SSH-encrypted tunnel to copy files across the network. `scp` (secure copy) is used much like the familiar cp program to copy files. The most notable difference is that the source or destination pathnames may be preceded with the name of a remote host, followed by a colon character.
@@ -210,14 +209,62 @@ The OpenSSH package also includes programs that can make use of an SSH-encrypted
 > [!TIP]
 > You cannot use `scp` when you are logged onto the remote server
 
-Copying files from remote to local, local to remote, remote to remote, copy entire folder, other common scp options, are the `"` needed?
+Copying files from remote to local, local to remote, remote to remote, copy entire folder
 ```console
-fky:~$ scp <username>@<server-ip>:"/path_to_the_file_to_copy" /path_of_the_local_folder_to_save
-fky:~$ scp -r <username>@<server-ip>:"/path_to_the_folder_to_copy" /path_of_the_local_folder_to_save
-fky:~$ scp -r <username>@<server-ip>:"/path_to_the_folder_to_copy" /path_of_the_local_folder_to_save
+fky:~$ scp <username>@<server-ip>:/path_to_the_file_to_copy /path_of_the_local_folder_to_save
+fky:~$ scp -r <username>@<server-ip>:/path_to_the_folder_to_copy /path_of_the_local_folder_to_save
+fky:~$ scp -r <username>@<server-ip>:/path_to_the_folder_to_copy /path_of_the_local_folder_to_save
 ```
+**Other commonly used options of `scp`**
+| Option | Description |
+|--------|-------------|
+| `-r`   | Recursively copy directories and their contents. |
+| `-C`   | Enable compression for faster transfers. |
+| `-v`   | Enable verbose output to debug connection issues. |
+| `-q`   | Suppress non-error output (quiet mode). |
+| `-l`   | Limit bandwidth usage in Kbit/s (e.g., `-l 1000`). |
+| `-p`   | Preserve file attributes such as timestamps and permissions. |
+| `-B`   | Run in batch mode, preventing password prompts. |
 
-### `screen`
+### `rsync`
+Similar to `scp`, `rsync` is a fast and versatile file-copying tool commonly used for synchronizing files and directories between local and remote systems. It minimizes data transfer by only copying differences between source and destination.
+
+It is commonly used for backups, incremental file transfers, and efficient remote synchronization.
+
+```console
+fky:~$ rsync -avz file.txt <username>@<server-ip>:/path_to_the_file_to_copy
+```
+**Commonly used options of `rsync`**
+| Option | Description |
+|--------|-------------|
+| `-a`   | Archive mode (preserves symbolic links, permissions, timestamps, etc.). |
+| `-v`   | Verbose output (shows detailed progress). |
+| `-z`   | Enable compression to speed up transfers. |
+| `-r`   | Recursively copy directories (included in `-a`). |
+| `-P`   | Show progress and resume interrupted transfers. |
+| `--progress` | Display real-time transfer progress. |
+| `-e "ssh"` | Use SSH for secure file transfers. |
+| `--delete` | Delete files in the destination that no longer exist in the source. |
+| `--exclude="pattern"` | Exclude files matching a pattern (e.g., `--exclude="*.log"`). |
+| `--include="pattern"` | Include specific files in transfer despite exclusions. |
+| `--dry-run` | Show what would happen without actually copying files. |
+| `-n`   | Alias for `--dry-run`. |
+| `-u`   | Skip files that are newer in the destination. |
+| `--bwlimit=RATE` | Limit bandwidth usage (e.g., `--bwlimit=1000` for 1MB/s). |
+| `--checksum` | Compare files using checksums instead of timestamps. |
+
+### Compare `scp` and `rsync`
+
+| Feature         | `rsync` | `scp` |
+|---------------|--------|------|
+| **Transfer Method** | Uses **delta transfer** (only transfers changed parts of files). | Transfers **entire files** every time. |
+| **Speed Efficiency** | Faster for repeated transfers due to incremental copying. | Slower as it copies everything, even unchanged files. |
+| **Preserving Metadata** | Preserves file attributes (`-a` for archive mode). | Partially preserves timestamps and permissions (`-p`). |
+| **Resuming Transfers** | Can resume interrupted transfers (`-P` or `--partial`). | Cannot resume; must restart the transfer. |
+| **Progress Display** | Can show detailed progress (`--progress`). | No built-in progress display. |
+| **Exclusion Rules** | Allows excluding specific files or directories (`--exclude`). | No built-in exclusion support. |
+| **Syncing Files** | Deletes destination files that don’t exist in the source (`--delete`). | Only copies; does not sync differences. |
+| **Usage Scenario** | Best for **backups, syncing directories, and large file transfers**. | Best for **simple, one-time file transfers**. |
 
 ### Downloading files from the web and FTP sites with `wget`
 Single files, multiple files, and even entire sites can be downloaded with `wget`.
@@ -309,11 +356,7 @@ It is also possible to view the contents of a variable using the echo command.
 fky:~$ echo $USER
 fky
 ```
-Folks frequently use `echo` to show what is in their `PATH`.
-```console
-fky:~$ echo $PATH
-/home/fky/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/
-```
+
 > [!TIP]
 > Aliases cannot be shown by `set` or `printenv`, but you can display the list of aliases by entering the `alias` command without arguments.
 ```console
@@ -344,15 +387,80 @@ fky:~$ alias
 |`USER`| Your username. |
 
 ### `PATH`
- - What is `PATH`
- - what you should and should not do with path
+`PATH` is a colon-separated list of directories that are searched when you enter the name of a executable program Folks frequently use `echo` to show what is in their `PATH`.
+```console
+fky:~$ echo $PATH
+/home/fky/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/
+```
 
-### configuration
+What you should and should not do with `PATH`:
 
-### conda environment
- - Anaconda vs miniconda
- - Why is conda useful
- - what can you do with conda
+✅Add Custom Directories to `PATH`
+> If you have custom scripts or binaries, add their directory to PATH in your shell config (`~/.bashrc`, `~/.bash_profile`, or `~/.zshrc`)
+
+```console
+fky:~$ export PATH="$HOME/bin:$PATH"
+```
+This ensures you can run your scripts from anywhere without specifying the full path.
+
+### **Configuration**
+When we log on to the system, the bash program starts and reads a series of configuration scripts called startup files, which define the default envi- ronment shared by all users. This is followed by more startup files in our home directory that define our personal environment. The exact sequence depends on the type of shell session being started. There are two kinds:
+> **A login shell session**: This is one in which we are prompted for our username and password. This happens when we start a virtual console session (SSH or GUI terminal login), for example.
+
+| **File**  | **Contents**|
+| ------------- | ------------- |
+| `/etc/profile`  |   A global configuration script that applies to all users.    |
+| `~/.bash_profile`  | A user’s personal startup file. It can be used to extend or override settings in the global configuration script. |
+|`~/.bash_login`| If ~/.bash_profile is not found, bash attempts to read this script. |
+|`~/.profile`| If neither ~/.bash_profile nor ~/.bash_login is found, bash attempts to read this file. This is the default in Debian-based distributions, such as Ubuntu. |
+
+> **A non-login shell session**: This typically occurs when we launch a terminal session in the GUI, i.e. opening a new terminal window.
+
+| **File**  | **Contents**|
+| ------------- | ------------- |
+| `/etc/bash.bashrc`  |   A global configuration script that applies to all users.    |
+| `~/.bashrc`  | A user’s personal startup file. It can be used to extend or override settings in the global configuration script. |
+
+> [!TIP]
+> In addition to reading the startup files listed above, non-login shells inherit the environment from their parent process, usually a login shell. Remember because most of the filenames listed start with a period (meaning that they are hidden), we will need to use the `-a` option when using `ls`.
+
+**Common content in `.bash_profile` file**:
+ - Setting Environment Variables
+ - Aliasing Commands
+ - Customizing the Shell Prompt (PS1) (example?)
+ - Running Other Startup Scripts (`.bash_profile` often loads `.bashrc` for consistency)
+ - Setting Up a Custom PATH
+ - Running Background Processes on Login
+ - Custom Functions
+
+The changes we have made to our `.bashrc` will not take effect until we close our terminal session and start a new one because the `.bashrc` file is read only at the beginning of a session. However, we can force bash to reread the modified `.bashrc` file with the following command:
+```console
+fky:~$ source ~/.bashrc
+```
+
+### Conda Environment
+
+#### Why `conda`?
+Using `conda` in bioinformatics is highly beneficial because it simplifies package management, dependency resolution, and environment control, which are crucial in scientific computing. 
+ - Conda provides a simple way to install and manage packages from channels like bioconda, which hosts thousands of bioinformatics tools.
+ - Many bioinformatics tools require specific versions of dependencies. Conda allows you to create isolated environments, preventing conflicts between tools.
+
+#### Anaconda vs Miniconda
+
+| Feature           | Anaconda                          | Miniconda                         |
+|------------------|--------------------------------|--------------------------------|
+| **Size**        | Large (~500MB)                 | Small (~40MB)                  |
+| **Includes**    | Conda, Python, and 100s of preinstalled packages (NumPy, Pandas, SciPy, etc.) | Only Conda and Python (minimal setup) |
+| **Best for**    | Users who want a ready-to-use data science environment | Users who prefer a lightweight setup and install packages as needed |
+| **Installation Time** | Longer due to preinstalled packages | Faster due to minimal installation |
+| **Flexibility**  | Less flexible (comes with many packages by default) | More flexible (you choose which packages to install) |
+| **Package Management** | Uses Conda package manager | Also uses Conda package manager |
+| **System Resource Usage** | Higher (more packages and dependencies) | Lower (minimal setup) |
+| **Default Channels** | Defaults to Anaconda’s official repository | Defaults to Anaconda’s repository but can use other sources |
+| **Usage Scenario** | Ideal for beginners or those who want a fully-featured data science environment out-of-the-box | Ideal for experienced users who want a lightweight setup and control over installed packages |
+
+#### Where to start with `conda`?
+Conda is pretty straghtforward to [install](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) and has clear, easy-to-start [tutorials](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html) on their website.
 
 ## Asking for help with AI
 
