@@ -1,5 +1,12 @@
-# Keyi's section
-> note that need to make sure have all commands in different system types
+# Table of Contents <!-- omit in toc -->
+
+ - [Learning Objectives](#learning-objectives)
+   - [References](#references)
+ - [Working with Packages](#working-with-packages)
+ - [Connecting with Remote Hosts](#connecting-with-remote-hosts)
+ - [Seting Up the Environment](#seting-up-the-environment)
+ - [Asking for help with AI](#asking-for-help-with-ai)
+ - [Git](#git)
 
 ## Learning Objectives
 > We are dedicated to equity-focused teaching. We will do our best to make the material accessible and transparent to all participants, regardless of background or system type. Please feel free to let us know during the session that if some material is not accessible to you (commands/links not working, teaching too fast, etc.)
@@ -9,6 +16,8 @@
    
 ### References
 Shotts, W. (2019). *The Linux command line: a complete introduction.* No Starch Press.
+
+Tool Development course material from Dr. Cristina Mitrea at the University of Michigan
 
 ## Working with Packages
 
@@ -493,17 +502,52 @@ For now, *ChatGPT* is still the most helpful AI chatbot for shell help in genera
  - "How to parallel this bash script in groups of 20? There are 300 things to loop through" (bash script attached)
  - "I ran <*this command*>. Why did I get <*this error message*>"
 
+> [!TIP]
+> GenAI often is more helpful when you give more context, e.g. uploading your bash scripts.
+
 ### How to navigate AI responses
 Although GenAI tools are very helpful, it’s also sometimes wrong, and with great confidence. Be careful when using `sudo` commands and `rm`ing things. Other than those, it is often ok to try the instructions from AI and feed the results back to it when things are still not working.
 
 ##  `Git`
 
 ### What is `Git`
+The `git` command is the main command-line tool used to interact with Git, a version control system. It allows you to manage source code repositories, track changes, collaborate with others, and maintain project history.
 
-### `Git` repositories
+GitHub is not the only website that hosts git repositories. Gitlab, Bitbucket, and SourceForge are some other ones.
+
+The benefits of using version control softwares:
+ - Optimized way to track changes
+ - Working in a team
+ - Backup
+ - Reproducibility
+ - Transparency (ownership, credit, blame)
+
+### Defining terminologies
+ - **_snapshot_** – the status and content of all files up to a moment in time
+ - **_commit_** – create a snapshot of
+   - Files changes
+   - Link to previous commit
+ - ***repository*** – files under version control software and collection of commits (can be local or remote, on a server)
+ - ***clone*** – bring in a local copy of a remote repository and keep a link so the local repository and remote repositories can communicate
+ - ***branch*** – a copy of a snapshot for independent development
+ - ***master*** – the main branch of a project head – reference to the most recent commit
+ - ***pull*** – bring the latest (commits), versions of the files tracked on the remote repository, to the local copy
+ - ***push*** – update the remote repository with the local commits
 
 ### Common `Git` commands
 
-```console
-fky:~$ 
-```
+| **Command**                 | **Description**                                           |
+|------------------------------|----------------------------------------------------------|
+| `git init`                   | Initialize a new Git repository in the current directory. |
+| `git clone <repo>`           | Clone a repository from a URL.                           |
+| `git add <file>`             | Stage a file for commit.                                 |
+| `git commit -m "message"`    | Commit changes with a descriptive message.              |
+| `git status`                 | Show the working tree status.                           |
+| `git log`                    | View the commit history.                                |
+| `git branch`                 | List all branches.                                      |
+| `git branch <name>`          | Create a new branch.                                    |
+| `git checkout <branch>`      | Switch to a specific branch.                            |
+| `git merge <branch>`         | Merge a branch into the current branch.                 |
+| `git pull`                   | Fetch and merge changes from a remote repository.      |
+| `git push`                   | Push local changes to a remote repository.              |
+| `git remote -v`              | List the remote repositories.                           |
