@@ -476,15 +476,106 @@ If you just want to copy certain files, you can select them using the `*` wildca
 ```bash
 cd chloro2/
 mkdir ps
-cp ps*.txt ps # copy all files starting with "ps" and ending with ".txt" to the new ps directory
+cp ps*.txt ps # copies all files starting with "ps" and ending with ".txt" to the new ps directory
 ```
 
-### `nano` and `vim`
-<!-- FIXME complete this section-->
+### `nano` (file editor)
+In order to edit our files, we've covered how to create and append to files.
+Typically, we want to edit text files in a different way.
+This is where a **text editor** comes in.
+You might think of Microsoft Word, for example, as a very advanced **text editor**, with a GUI (Graphical User Interface) and special file formats.
+
+For programming, however, we want to use a text editor that suits our purposes better.
+
+A text editor is not one-size-fits-all, so it's up to you to find a text editor that suits you well. 
+Once you find one that works with your approach, you'll have to learn the shortcuts associated with the text editor.
+Some text editors take the form of GUIs or desktop applications. (I like VSCode and Sublime Text, but you can also use your OS' default text editor if this works for you.)
+Some text editors should be preinstalled on your OS, however, so let's check these out briefly.
+
 ```bash
+nano
+```
+`nano` is one of the simplest editors you can use.
+Once you've opened it, feel free to type something fun, like `Hello world!`
 
+The commands listed along the bottom row show the ^ symbol, which is <kbd>Ctrl</kbd>.
+
+Once you've written your text, press <kbd>Ctrl</kbd><kbd>X</kbd> to exit. 
+You'll be prompted to save, then enter a file name.
+Enter something ending in `.txt` - may I recommend `nanohw.txt`?
+Press <kbd>Enter</kbd>, and you're back at the terminal.
+
+Call `cat` on your file to check that your text is included.
+
+Now call `nano` on a file.
+For example,
+```bash
+nano firstgenes.fa
 ```
 
+### `vim` (file editor)
+
+Let's try another file editor.
+
+
+```bash
+vim
+```
+Once you've opened `vim`, you'll need to remember that it is different from your CLI. 
+It does have a short summary of commands displayed.
+`vim` has a special set of commands and shortcuts that you will need to memorize if you plan on becoming a regular `vim` user.
+Here are a few that will get you started off the bat:
+
+| Command  | Short description of what it does |
+| ------------- | ------------- |
+| `:q`  | exit vim  |
+| `:help`  | for on-line help  |
+
+
+First try these:
+
+```
+:help # take a look at some of the commands here. there are quite a few so let's move on
+
+
+:q # exit the help page now that we know it's there
+```
+Now you will see a blank page like this:
+```console
+
+~
+~
+~
+~
+~
+~
+~
+~
+~
+```
+
+Use `:i` to enter `insert mode`. 
+Type something in your file now :)
+
+
+You may want to write `hello world! this is vim!`.
+
+Now hit `ESC` to enter command mode and type: 
+```bash
+:wq vimfile.txt
+```
+This will exit `vim` and save the file to the name we've given.
+
+Call `cat` on your file to confirm that it includes your text!
+> [!TIP]
+>For more information, please see this cheat sheet:
+>[https://vim.rtorr.com/](https://vim.rtorr.com/)
+
+#### Other text editors
+You can also check out these text editors if you are interested.
+| Text Editor  | Short description | Link or command |
+| ------------- | ------------- | ------------- |
+| `nano`  | Content  ||
 
 ### `head` and `tail`
 <!-- FIXME complete this section-->
@@ -510,7 +601,7 @@ Sometimes you can find a needle in the haystack by Googling "how to make this th
 
 <!-- FIXME insert some links for simple coding vocab here -->
 
-You will get the most helpful resources from 
+<!-- You will get the most helpful resources from ... -->
 
 
 ## Demonstration of the skills we put together
