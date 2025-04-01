@@ -478,6 +478,8 @@ cd chloro2/
 mkdir ps
 cp ps*.txt ps # copies all files starting with "ps" and ending with ".txt" to the new ps directory
 ```
+### `rm` (remove file/directory)
+
 
 ### `nano` (file editor)
 In order to edit our files, we've covered how to create and append to files.
@@ -571,33 +573,128 @@ Call `cat` on your file to confirm that it includes your text!
 >For more information, please see this cheat sheet:
 >[https://vim.rtorr.com/](https://vim.rtorr.com/)
 
-#### Other text editors
+<!-- #### Other text editors
 You can also check out these text editors if you are interested.
 | Text Editor  | Short description | Link or command |
 | ------------- | ------------- | ------------- |
-| `nano`  | Content  ||
+| `nano`  | Content  || -->
 
 ### `head` and `tail`
-<!-- FIXME complete this section-->
+Sometimes, a file can be so large that it's unwieldy to use `cat`.
+Or, occasionally, you'll only want to see the top or bottom of a file. 
+In this case, you can use `head` or `tail`.
 ```bash
+head Chloroplast_Genes.fa
+# to get only the first two lines:
+head -n 2 Chloroplast_Genes.fa 
+
+tail Chloroplast_Genes.fa
+# to get only the last two lines:
+tail -n 2 Chloroplast_Genes.fa
 
 ```
-
+<!-- 
 ### `wget` and `curl`
-<!-- FIXME complete this section-->
 ```bash
 
 ```
+-->
 ## Scripting, variables, loops, reading files
+
+When we have a command that we want to call multiple times, for multiple files, we can use a **loop** to complete the same action repeatedly.
+
+This is useful when we have a large amount of files.
+
+Navigate to the `alexas_section/chloro` folder.
+Each file in this folder represents a gene.
 
 ## Problem solving
 <!-- FIXME complete this section-->
 
-<!-- How to Google a problem, thought process, How to google a problem, which stackoverflow answers are good -->
+![](https://preview.redd.it/r67fvj6jycj21.jpg?auto=webp&s=555a489422ead2016d5592a2b70c8a4bdb6c7237)
 
 When looking for help, you can take a few different approaches. 
 Classic Google searches, in many cases, can be difficult to navigate when you are unfamiliar with a new programming language, and the vocabulary for finding your answer might escape you. 
-Sometimes you can find a needle in the haystack by Googling "how to make this thing do another thing", but learning how to accurately describe the issue you are facing can will go a long way in getting you closer to an answer.
+Sometimes you can find a needle in the haystack by Googling "how to make this thing do another thing" because you lack terminology, but learning how to accurately describe the issue you are facing will go a long way in getting you closer to an answer.
+
+The advice below will help you the most if you are flexible and broad with your search strategy.
+This is to say that you should open at least the top three hits to a question or error message.
+Consider the answers on the page and whether they seem to explain your issue in terms that you understand. 
+Since there are many ways to solve a problem, you should find the easiest and simplest way to do it.
+If your simple variable assignment error can be solved in one line, why do it in ten?
+
+Consider if each approach makes sense to you. 
+I try to avoid helpful tips that include installing packages or modules unless it's my last resort.
+
+If none of the top 3-ish hits seem to solve my problem, I usually change the wording and try again.
+
+One piece of advice is that you should always paste your error message into Google. 
+You will find that many people have had the same issue. 
+
+However, if the error message is over 2 lines, and wordy, consider trimming some of it.
+If the error message includes your own directory structure, remove that unless you're trying to do something with the basic file system. 
+Because every user has their own directory setup, you'll get more specific hits if you prioritize the error in question.
+
+ <!-- fixme include example here -->
+
+### Safety risks while looking for answers online
+
+Please exercise caution when copying and pasting code _that you don't understand_ from online sources into your terminal.
+As a beginner, you should prioritize code that makes sense within your current understanding, and build upon your current knowledge. 
+You may not be working with complex databases from day 1, but that's _totally fine_.
+
+
+This StackOverflow post is a gentle reminder that copying and pasting code (this particular example is in Python) from dubious sources can be a security risk:
+
+[https://meta.stackoverflow.com/questions/407049/blindly-copy-pasting-code-is-bad-a-gentle-reminder](https://meta.stackoverflow.com/questions/407049/blindly-copy-pasting-code-is-bad-a-gentle-reminder)
+
+
+## 🚩 Red flags: Code to avoid 🚩
+
+`sudo` is a powerful way to run commands at an administrator level.
+Unless you understand _why_ you are using `sudo`, _and_ there is no other way to accomplish the task, it's best to avoid using it. 
+
+Your OS has some built in protections against running potentially damaging code, or altering files that are essential to keep your system working.
+
+You will occasionally need `sudo` in order to install software or a package.
+This is normal and you should 
+Still exercise caution in these cases, and don't install software from places you don't trust (one way to check this is to make sure your website link matches one in a scientific publication before downloading or running code from it).
+
+Do not under any circumstances run any iteration of this:
+```bash
+sudo rm -rf /*
+```
+Check out `man rm` to see why the flags `-r` and `-f` would be a bad idea to run together.
+
+```console
+     -f      Attempt to remove the files without prompting for confirmation, regardless of the file's permissions.  If the file does not exist, do not display a diagnostic message or modify the exit status to reflect an error.  The -f option overrides any previous -i options.
+     -R      Attempt to remove the file hierarchy rooted in each file argument.  The -R option implies the -d option.  If the -i option is specified, the user is prompted for confirmation before each directory's contents are processed (as well as before the attempt is made to remove the directory).  If the user does not respond affirmatively, the file hierarchy rooted in that directory is skipped.
+
+     -r      Equivalent to -R.
+
+```
+
+Since `/` is your root directory for many operating systems, this will erase all files with admin privileges.
+
+
+You can call `./*` as a way to wildcard (`*`) expand all folders underneath your current working directory `.`
+
+Editing or accessing all files in your current working directory `./*` is very different from editing or accessing all files in your `root` directory `/*`, so make sure to use caution when using `./*`.
+
+Now you have the prerequisite information to understand the meme below:
+
+![Star wars Anakin and Padmé meme format. Anakin is labeled "Junior dev". Padme is labeled "Senior Dev". Panel 1/4: Junior Dev: I finished running "rm -rf /" Panel 2/4: Senior Dev: You mean "rm -rf ./", right? Panel 3/4: Junior Dev: (nothing written, Anakin has a serious face) Panel 4/4: Senior Dev: You mean "rm -rf ./", right? ](https://i.redd.it/58qqxaljblc91.jpg)
+
+<!-- https://en.wikipedia.org/wiki/Perl#Philosophy -->
+
+
+Some versions of this meme will try to get beginners to remove the "radio frequency" or "french language" package from their system.
+Now you know! 
+
+![ Kinnaird McQuade / @kmcquade3 / Linux tips 1. Always remove the french language pack: sudo rm -fr ./*](https://i.imgur.com/IDfBUo4.jpg)
+
+The above version assumes that you run it from root, and that `./*` will be the same as `/*`. 
+A more destructive version of this tweet would say `/*`.
 
 <!-- FIXME insert some links for simple coding vocab here -->
 
