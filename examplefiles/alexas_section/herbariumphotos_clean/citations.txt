@@ -1,0 +1,2 @@
+When using this dataset please use the following citation and pay attention to the rights documented in rights.txt:
+Grant S, von Konrat M (2023). Field Museum of Natural History (Botany) Seed Plant Collection. Version 11.16. Field Museum. Occurrence dataset https://doi.org/10.15468/nxnqzf accessed via GBIF.org on 2025-02-24.

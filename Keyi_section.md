@@ -37,11 +37,14 @@ fky:~$ which raxml
 fky:~$ which hybpiper
 hybpiper not found
 ```
+<!-- Alexa's note: could include something here that is in the $PATH by default since some folks will not have raxml or hybpiper installed -->
+
 ### Getting a Command's Documentation
 #### `help` - Get help from shell builtins (exclusive for linux?)
 ```console
 fky:~$ help cd
 ```
+<!-- Alexa's note: this didn't work for me on mac zsh 5.9 -->
 #### `--help` - Display usage information
 ```console
 fky:~$ raxml -h
@@ -67,6 +70,7 @@ Other varieties of the `-h` command
 <package-command> -help
 <package-command> -h
 ```
+<!-- AT: same as above, slight caveat in that some people will not have raxml so might be good to have a backup command here -->
 #### `man` - Display a program's manual page
 ```console
 fky:~$ man cd
@@ -101,6 +105,7 @@ DESCRIPTION
      current umask(2).
 ......
 ```
+<!-- AT: could be good to note here that you need to press Q to quit, otherwise some may get stuck in the manual -->
 #### `apropos` - Display appropriate commands
 ```console
 fky:~$ apropos partition
@@ -143,6 +148,9 @@ fky:~$ unalias rx
 fky:~$ type rx
 rx not found
 ```
+<!-- AT: Same as above, raxml might not be on everyones system so you could even do an `ls` alias - I have one aliasing `ll` to `ls -lah`. We can also walk them through using nano or vim to add the alias to their .rc file
+  -->
+
 > [!TIP]
 > To enable the same alias every time you reboot your system, save your `alias` command in your `.zrcsh` `.bashrc` or (sth in windows) files
 
@@ -162,6 +170,7 @@ PING 8.8.8.8 (8.8.8.8): 56 data bytes
 64 bytes from 8.8.8.8: icmp_seq=2 ttl=115 time=194.726 ms
 ...
 ```
+<!-- AT note: will need to use CTRL+C to interrupt this -->
 You can also use `ping` to check if the ip of your server exist and that it is connected to the network.
 ```console
 fky:~$ ping <server-ip>
@@ -224,6 +233,7 @@ fky:~$ scp <username>@<server-ip>:/path_to_the_file_to_copy /path_of_the_local_f
 fky:~$ scp -r <username>@<server-ip>:/path_to_the_folder_to_copy /path_of_the_local_folder_to_save
 fky:~$ scp -r <username>@<server-ip>:/path_to_the_folder_to_copy /path_of_the_local_folder_to_save
 ```
+<!-- AT: I really like this section and I feel like it is very clear. -->
 **Other commonly used options of `scp`**
 | Option | Description |
 |--------|-------------|
@@ -314,6 +324,7 @@ Note that the URL of FTP sites starts with `ftp://`
 ```console
 fky:~$ wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/026/745/355/GCF_026745355.1_EL10.2/
 ```
+<!-- AT: I felt like this section is really concise and I like the tables! -->
 
 ## Seting Up the Environment
 
@@ -403,7 +414,7 @@ fky:~$ echo $PATH
 ```
 
 What you should and should not do with `PATH`:
-
+<!-- AT: should there be a section of what not to do with $PATH here? -->
 ✅Add Custom Directories to `PATH`
 > If you have custom scripts or binaries, add their directory to PATH in your shell config (`~/.bashrc`, `~/.bash_profile`, or `~/.zshrc`)
 
@@ -412,8 +423,10 @@ fky:~$ export PATH="$HOME/bin:$PATH"
 ```
 This ensures you can run your scripts from anywhere without specifying the full path.
 
+<!-- They might need a reminder here to reload their shell and then check their path with `which` and echo $PATH- could mention that here. I struggled with $PATH a lot as a beginner and I think a lot of issues could have been solved by just knowing how to reload my shell and check my path-->
+
 ### **Configuration**
-When we log on to the system, the bash program starts and reads a series of configuration scripts called startup files, which define the default envi- ronment shared by all users. This is followed by more startup files in our home directory that define our personal environment. The exact sequence depends on the type of shell session being started. There are two kinds:
+When we log on to the system, the bash program starts and reads a series of configuration scripts called startup files, which define the default environment shared by all users. This is followed by more startup files in our home directory that define our personal environment. The exact sequence depends on the type of shell session being started. There are two kinds:
 > **A login shell session**: This is one in which we are prompted for our username and password. This happens when we start a virtual console session (SSH or GUI terminal login), for example.
 
 | **File**  | **Contents**|
@@ -470,7 +483,7 @@ Using `conda` in bioinformatics is highly beneficial because it simplifies packa
 
 #### Where to start with `conda`?
 Conda is pretty straghtforward to [install](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) and has clear, easy-to-start [tutorials](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html) on their website.
-
+<!-- AT: will we have them set up conda in the workshop if we have time? Or should we just make them aware of it?  -->
 ## Asking for help with AI
 We encounter errors and problems while dealing with the command line **all the time**. Sometimes, it takes a long time to fish out useful information with *Google* or even it can turn out fruitless. In many cases, using an AI tool can solve your shell problem much faster.
 
@@ -491,7 +504,7 @@ For now, *ChatGPT* is still the most helpful AI chatbot for shell help in genera
 
 ### Common prompts for GenAI
 
-[promts.chat](https://prompts.chat/): designed to provide an enhanced UX when working with prompts. With just a few clicks, you can easily edit and copy the prompts on the site to fit your specific needs and preferences. On this website, you will find a variety of prompts that can be used with ChatGPT and other AI chat models.
+[prompts.chat](https://prompts.chat/): designed to provide an enhanced UX when working with prompts. With just a few clicks, you can easily edit and copy the prompts on the site to fit your specific needs and preferences. On this website, you will find a variety of prompts that can be used with ChatGPT and other AI chat models.
 
 [Guide to write a GenAI prompts](https://genai.umich.edu/resources/prompt-literacy)
 
@@ -507,7 +520,7 @@ For now, *ChatGPT* is still the most helpful AI chatbot for shell help in genera
 
 ### How to navigate AI responses
 Although GenAI tools are very helpful, it’s also sometimes wrong, and with great confidence. Be careful when using `sudo` commands and `rm`ing things. Other than those, it is often ok to try the instructions from AI and feed the results back to it when things are still not working.
-
+<!-- AT: I don't often use AI for coding so I can't comment on a lot of this but it seems very informative! I would also add that chatgpt can be good alongside something like https://explainshell.com/ to enhance your shell learning -->
 ##  `Git`
 
 ### What is `Git`
@@ -551,3 +564,5 @@ The benefits of using version control softwares:
 | `git pull`                   | Fetch and merge changes from a remote repository.      |
 | `git push`                   | Push local changes to a remote repository.              |
 | `git remote -v`              | List the remote repositories.                           |
+
+<!-- AT: I think if we have 10 minutes and they already have a github account, we can have them set up a quick empty git repo. They could try to git pull the repo for this workshop too as an exercise. That might be a bit far-fetched but I think being able to understand the workflow of git clone / git pull / git add -A / git commit -m "msg" / git push is really important -->
