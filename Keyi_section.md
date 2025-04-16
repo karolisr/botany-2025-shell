@@ -4,7 +4,7 @@
    - [References](#references)
  - [Working with Packages](#working-with-packages)
  - [Connecting with Remote Hosts](#connecting-with-remote-hosts)
- - [Seting Up the Environment](#seting-up-the-environment)
+ - [Setting Up the Environment](#setting-up-the-environment)
  - [Asking for help with AI](#asking-for-help-with-ai)
  - [Git](#git)
 
@@ -315,10 +315,12 @@ Note that the URL of FTP sites starts with `ftp://`
 fky:~$ wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/026/745/355/GCF_026745355.1_EL10.2/
 ```
 
-## Seting Up the Environment
+## Setting Up the Environment
 
 ### The Environment
 > The shell maintains a body of information during our shell session called the _**environment**_. Programs use the data stored in the environment to determine facts about the system’s configuration. While most programs use configuration files to store program settings, some programs also look for values stored in the environment to adjust their behavior. Knowing this, we can use the environment to customize our shell experience.
+
+### *compare with temperate variables too*
 
 The shell stores two basic types of data in the environment; though, with bash, the types are largely indistinguishable. They are _**environment variables**_ and _**shell variables**_. Shell variables are bits of data placed there by bash, and environment variables are everything else. 
 
