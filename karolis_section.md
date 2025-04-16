@@ -61,6 +61,8 @@
 [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/latest)
 [](https://www.maizure.org/projects/decoded-gnu-coreutils)
 
+<!-- KF: Not sure if you are going to expand this section -->
+
 ## Bash/ZSH configuration
 
 ### Files
@@ -74,6 +76,7 @@ When **Bash**/**ZSH** process starts, it will read user's configuration files in
 ```console
 $ env
 ```
+<!-- KF: I feel like this secion can just be combined with my env section, if you do not plan introduce other subtopics -->
 
 ## Process Life-cycle and Job Control
 
@@ -300,6 +303,7 @@ $ bg
 [2]  - 1417753 continued  top
 [2]  + 1417753 suspended (signal)  top
 ```
+<!-- KF: Looks great! Easy to follow and lots of details. -->
 
 ## Standard Streams and Redirection
 
@@ -425,3 +429,5 @@ $ ls -l | grep "\.txt"
 
 - `ls -l` lists files in long format.
 - The pipe (`|`) sends the output of `ls -l` to `grep "\.txt"`, which filters the list to show only files ending with `.txt`.
+
+<!-- KF: This section looks great, too! -->
