@@ -718,13 +718,14 @@ Navigate to `botany-2025-shell/examplefiles/alexas_section/herbariumphotos/`.
 Check out the `multimedia.txt` file.
 
 ```bash
-head multimedia.txt
+head -n 2 multimedia.txt
 ```
 Looks like it's <kbd>Tab</kbd> separated, and the image links are in the fourth column.
 We will have to use a bit of bash magic to get the links.
 Let's try downloading one of them.
 ```bash
-wget //fm-digital-assets.fieldmuseum.org/2243/650/V0533979F.jpg
+cd output_herbphotos/
+wget http://fm-digital-assets.fieldmuseum.org/2243/650/V0533979F.jpg
 ```
 
 Okay, now it's in our main folder.
@@ -733,8 +734,17 @@ If we download all of them like this, it's a bit of effort, and our main folder 
 
 >[!TIP]
 >For information on how to select your own images for downloading, visit https://www.gbif.org/occurrence/search and select images for the species or genus of your choice. 
-> You'll have to make an account to generate and download the `.txt` file.
->Make sure you're familiar with Creative Commons licenses before using others' images.
+> You'll have to make an account to generate and download a custom `multimedia.txt` file.
+>
+>**Make sure you're familiar with Creative Commons licenses before using others' images**.
+
+
+```bash
+head -n 4 multimedia.txt | tail -n +2 |  awk '{print $4}'  | while read link; do echo $link; wget $link -P output_herbphotos;  done
+```
+
+Now if we have the file names:
+
 
 
 ## Summary and cheat sheet
