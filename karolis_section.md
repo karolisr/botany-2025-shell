@@ -179,7 +179,7 @@ $ env
     ```console
     $ kill 12345
     ```
-
+<!-- AT: is there a way you will deomnstrate this with for example the sleep example from earlier? -->
     This sends the default SIGTERM signal to the process with PID `12345`.
 
   - **Force kill a process (SIGKILL):**
@@ -213,7 +213,7 @@ $ env
   ```
 
 #### The `fg` Command
-
+<!-- At: I would either mention this here or above, but mentioning it in both places was a bit confusing to me -->
 - **Purpose:**
   Brings a background or suspended job to the foreground.
 
@@ -248,7 +248,7 @@ $ ps
 1418273 pts/0    00:00:00 top
 1418663 pts/0    00:00:00 ps
 ```
-
+<!-- AT: will this become a section? -->
 ```console
 $ top
 $ htop
@@ -267,6 +267,7 @@ $ lsof
 ### Foreground/Background Jobs
 
 Start any program that may take a while.
+<!-- AT: maybe you will do this verbally but you may want to give a use case for when someone will want to use this. -->
 
 ```console
 $ top
@@ -303,6 +304,7 @@ $ bg
 [2]  - 1417753 continued  top
 [2]  + 1417753 suspended (signal)  top
 ```
+<!-- AT: what does the "signal" mean? -->
 <!-- KF: Looks great! Easy to follow and lots of details. -->
 
 ## Standard Streams and Redirection
@@ -349,6 +351,7 @@ $ echo "Hello, World!"
 ### 2. Output Redirection (`>` and `>>`)
 
 #### Overwriting a File with `>`
+<!-- AT: I wouldn't worry about us going over this twice since my explanation of it is very basic and i don't mention stdout -->
 
 The `>` operator redirects the stdout of a command to a file, overwriting its contents.
 
@@ -406,7 +409,7 @@ $ ls somefile.txt > output.log 2>&1
 #### Using `&>`
 
 The `&>` operator is a shorthand to redirect both stdout and stderr to a file. (Note: `&>` is supported in Bash, but may not be available in all shells.)
-
+<!-- AT: I liked this explanation! -->
 **Example:**
 
 ```console
