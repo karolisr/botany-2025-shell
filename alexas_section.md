@@ -1,4 +1,4 @@
-# botany-2025-shell, Alexa's section
+# Introduction to basic command line and file navigation
 <!-- how i made the example files:
 cat Chloroplast_Genes.fa | while IFS= read -r line; do if [[ $line == \>* ]]; then filename="${line:1}.txt"; echo $filename; fi; touch $filename; echo $line >> $filename;  done
  -->
@@ -30,8 +30,6 @@ It'll appear when I copy and paste my output.
 You do not need to type this into your input since it just lets me know where I started typing. 
 You can change yours if you'd like, but we can get to that later. 
 
-<!-- KF: I love this intro! -->
-
 ### `ls` (list files)
 Let's run this command first. Type this into the window:
 ```bash
@@ -53,12 +51,12 @@ Dropbox                      kanboard
 (etc...)
 ```
 We can list files from inside each of these folders, too. 
-Try:
+Try one of the files you see:
 ```bash
 ls Desktop
 ```
-To access a folder inside a folder, you can use a `/`. 
-Pick a folder of your choice, or from another place if your desktop is folder-less.
+To access a folder inside a folder, you can use  `/`. 
+From what you see above, show the file listing of a folder of your choice, or from another place if your desktop is folder-less.
 ```bash
 ls Desktop/sra
 ```
@@ -115,9 +113,7 @@ Click <kbd>Q</kbd> on your keyboard when you're ready to exit the manual page.
 Thus far, we have been listing files starting from the same directory. 
 In order to actually move around the system, we need to use a different command. 
 <!-- %fixme not sure how this will work, will we have them git pull the directory first?  -->
-<!-- KF: not sure if we want them to do everything on the remote server from the beginning
-or on their system first. If start with their system then, they need to git pull or we just make
-all the examples to a zip and send them those. -->
+
 Locate the directory with the course files. It's titled `botany-2025-shell`. 
 
 Now run
@@ -140,7 +136,6 @@ By using the `<kbd>Tab</kbd>` autocomplete shortcut, you can avoid some typo-ind
 At this point you may have also noticed that you cannot use the cursor to select a spot to edit your input, so it might be frustrating to `<kbd>DEL</kbd>` all the way back to where you want to edit. 
 You are essentially working on a screen where there is one "insertion point" which you control using the keyboard rather than the mouse. 
 I'm including a few time-saving terminal keyboard shortcuts here that I use all the time.
-<!-- KF: 2 kbd not working here -->
 
 <!-- | First Header  | Second Header |
 | ------------- | ------------- |
@@ -162,8 +157,6 @@ I'm including a few time-saving terminal keyboard shortcuts here that I use all 
 
 ### file paths (`.`, `..`, `/`)
 
-<!-- KF: I am not sure if it's good to name the example folders someone's section. By content name
-may be better -->
 Let's see what's in the folder `examplefiles/alexas_section`
 ```bash
 cd alexas_section/
@@ -202,10 +195,6 @@ These are file paths we can call with `cd` and `ls` just like we used folders.
 | `.`  | `ls .` OR `cd .` |Calls current directory, so `cd` and `ls` just show you or take you to the current directory. Note that this is different from `cd` as a standalone call, which will take you back to your home/root directory.|
 | `..`  | `ls ..` OR `cd ..` ||
 |`~`| `ls ~/(filepath)` OR `cd ~/(filepath)`| `~` is your **root directory**, which means that this is a method for getting an absolute path. Since your root directory should retain the same file structure, you can call full file paths from the root directory without worrying about your currrent location. |
-
-<!-- KF: the explanation for '..' is missing? And also would it be useful to mention the absolute path
-on different machines might be different? Depending where they downloaded the files -->
-
 > [!TIP] 
 > **The difference between absolute and relative file paths.**
 > An absolute file path looks like this: `~/Documents/GitHub/botany-2025-shell/examplefiles/alexas_section/11/11.txt` 
@@ -419,7 +408,7 @@ cat file5.txt
 ```
 
 **Knowledge check:** what is the difference between 
-`echo file5.txt` and `cat file5.txt`? 
+`echo file5.txt`, `ls file5.txt`, and `cat file5.txt`? 
 Run each one yourself to check.
 
 ### `mv` (move and rename)
@@ -490,7 +479,7 @@ mkdir ps
 cp ps*.txt ps # copies all files starting with "ps" and ending with ".txt" to the new ps directory
 ```
 ### `rm` (remove file/directory)
-<!-- KF: there is an empty section here! Just in case if you forgot -->
+
 
 ### `nano` (file editor)
 In order to edit our files, we've covered how to create and append to files.
@@ -619,8 +608,6 @@ This is useful when we have a large amount of files.
 Navigate to the `alexas_section/chloro` folder.
 Each file in this folder represents a gene.
 
-<!-- KF: I guess you are planning to add more stuff here too? -->
-
 ## Problem solving
 <!-- FIXME complete this section-->
 
@@ -715,13 +702,11 @@ A more destructive version of this tweet would say `/*`.
 
 
 ## Demonstration of the skills we put together
-<!-- FIXME complete this section-->
+<!-- FIXME complete this section
 In this example, you will use a line-separated `.txt` file to download some herbarium images.
 Each line in this file will have a link to a photo of an herbarium specimen from the Field Museum, which you can access by clicking the link. 
 Here's an example:
 [https://fm-digital-assets.fieldmuseum.org/2243/650/V0533979F.jpg](https://fm-digital-assets.fieldmuseum.org/2243/650/V0533979F.jpg)
-
-<!-- KF: I like all the memes! -->
 
 You can always download these by clicking on the link, opening it in the browser, and then saving it to a folder of your choice. 
 
@@ -758,7 +743,7 @@ If we download all of them like this, it's a bit of effort, and our main folder 
 head -n 4 multimedia.txt | tail -n +2 |  awk '{print $4}'  | while read link; do echo $link; wget $link -P output_herbphotos;  done
 ```
 
-Now if we have the file names:
+Now if we have the file names: -->
 
 
 

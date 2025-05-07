@@ -2,11 +2,26 @@
 
 ## Welcome
 
-Text
+Welcome to the command-line interface (CLI) workshop! As the organizers (Alexa, Keyi, and Karolis), we are hoping to help you discover some fun and time-saving approaches to streamline your work and understand your computer a bit better. 
+This workshop is geared towards total beginners — no experience is required. 
+
+Our contact information is below:
+
+
+- Alexa Tyszka (she/her), University of Illinois Chicago, atyszka2@uic.edu
+
+- Keyi Feng, University of Michigan, fky@umich.edu
+
+- Dr. Karolis Ramanauskas, University of Illinois Chicago, kraman2@uic.edu
+
+
+
 
 ## First steps
 
-How to open a terminal application; hello world.
+Before attending class, we request first that you attempt to open a terminal window.
+From here, you'll be prepared for the class. 
+Goal: open a terminal window and print a simple 'hello world'.
 
 ### Windows
 
@@ -29,59 +44,29 @@ STR="Hello world!"
 echo $STR
 ```
 
+Quick explanation: 
+
 This step sets the variable called `STR` to equal (`=`) the string of characters `Hello world!`. Then, we can `echo` the contents of this variable by using `$` to specify that we are calling a variable.
 
+
+Questions to think about:
 - What happens if you put other text into `STR`?
-- Try setting a different variable like `NAME`?
+- What if you try setting a different variable like `NAME`?
 - What happens if you forget to use `$`?
 
-Drafting: (from google drive)
+## Conclusions
 
-## Ideas for things to talk about
+Please reach out if you have issues with opening a terminal window, or if you got confused. 
 
-### Alexa
+The material in the rest of the course can be accessed here:
 
-- Computer and file basics, navigation:
-  - `cd`, `ls`, `..`, `clear`
-  - shortcuts: CTRL+U/E/A, up/down, history
-- Basic commands: `echo`, `cat`, `touch`, `nano`, `head`, `tail`, `tail -f`, `rm`, `cp`
-- How to google a problem, which stackoverflow answers are good
-- Scripting, variables, loops, reading files.
+1. [Alexa's section](https://github.com/karolisr/botany-2025-shell/blob/main/alexas_section.md)
+2. [Keyi's section]()
+3. [Karolis' section]()
 
-### Keyi
 
-- Working with commands: help, version, `man`, `alias`, etc.
-- Remote connections: `ssh`, `wget`, `curl`, `rsync`, `scp`
-- Setup: path, configuration, Conda environment
-- ChatGPT, debugging
-- Git
-
-### Karolis
-
-- Standard streams:
-  - input (0, stdin)
-  - output (1, stdout)
-  - error (2, stderr)
-- Redirection of streams: `2>&1`, `&>`, `>`, `>>`, pipes (`|`)
-- Output and text manipulation: `sort`, `grep`, `sed`, `wc`, etc.
-- Setup:
-  - environmental variables
-  - bash configuration files: .bashrc, .profile, etc.
-- Running processes (and manipulation): `ps`, `kill`, `top`, `htop`, `lsof`, etc.
-- `time`
-  - Background/foreground: <kbd>⌃ Control</kbd> + <kbd>Z</kbd>, `bg`, `fg`
-- Wildcards, "globbing" patterns: `*`, `?`, `{}`, `[]`, `[!]`
-- `screen` (should probably go after SSH)
-- Users/privileges.
-  - Default user accounts/groups.
-  - File ownership: user, group, other.
-  - `chown`, etc.
-  - File permissions.
-  - `chmod`, etc.
-  - Superuser, root.
-    - Privilege escalation: `sudo`, `doas`.
 
 ## Useful Links and Tips
 
 - [Use ShellCheck (editor plugin, or online)](https://www.shellcheck.net)
-- [Keyboard shortcut code generator for Markdown (eg.: <kbd>⌘ Command</kbd> + <kbd>⌃ Control</kbd> + <kbd>⌥ Option</kbd> + <kbd>G</kbd>)](https://kbd.hsuan.xyz)
+<!-- - [Keyboard shortcut code generator for Markdown (eg.: <kbd>⌘ Command</kbd> + <kbd>⌃ Control</kbd> + <kbd>⌥ Option</kbd> + <kbd>G</kbd>)](https://kbd.hsuan.xyz) -->
