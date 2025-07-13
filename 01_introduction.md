@@ -92,7 +92,7 @@ You can combine options, too, by chaining together letters. You cannot chain lon
 | ------------- | ------------- |
 | `ls -lah`  |   Displays the `-l` long form, `-a` all files, in a `-h` human-readable form    |
 | `ls -ltrah`  | Displays files in  `-l` long form,`-t` time-sorted, `-r` reverse sorted (so the most recent is at the bottom where you can see it!), `-a` all files, in a `-h` human-readable form. |
-|`ls -oh`| Displays `-o` long format with no no group information `-h` in human-readable sizes. |
+|`ls -oh`| Displays `-o` long format with no group information `-h` in human-readable sizes. |
 
 >[!TIP]
 >Note also that the order of your options doesn't matter. 
