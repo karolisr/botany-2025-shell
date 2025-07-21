@@ -2,14 +2,45 @@
 <!-- how i made the example files:
 cat Chloroplast_Genes.fa | while IFS= read -r line; do if [[ $line == \>* ]]; then filename="${line:1}.txt"; echo $filename; fi; touch $filename; echo $line >> $filename;  done
  -->
-## Welcome and Learning Objectives
+
+- [Introduction to basic command line and file navigation](#introduction-to-basic-command-line-and-file-navigation)
+  - [Welcome and Learning Objectives](#welcome-and-learning-objectives)
+  - [1. Computer and file basics](#1-computer-and-file-basics)
+    - [Navigation](#navigation)
+    - [`ls` (list files)](#ls-list-files)
+    - [`man` (manual)](#man-manual)
+    - [`cd` (change directory)](#cd-change-directory)
+    - [Terminal shortcuts save time!](#terminal-shortcuts-save-time)
+    - [file paths (`.`, `..`, `/`)](#file-paths---)
+  - [2. Creating and editing folders and files](#2-creating-and-editing-folders-and-files)
+    - [`mkdir` (create a folder)](#mkdir-create-a-folder)
+    - [`cat` 🐈 (concatenate and print)](#cat--concatenate-and-print)
+    - [`touch` (create a file)](#touch-create-a-file)
+    - [`>>` and `>` (redirection)](#-and--redirection)
+    - [`mv` (move and rename)](#mv-move-and-rename)
+    - [`cp` (copy)](#cp-copy)
+    - [`rm` (remove file/directory)](#rm-remove-filedirectory)
+    - [`nano` (file editor)](#nano-file-editor)
+    - [`vim` (file editor)](#vim-file-editor)
+    - [`head` and `tail`](#head-and-tail)
+  - [3. Helpful commands, introduction to programming structures](#3-helpful-commands-introduction-to-programming-structures)
+    - [clear, history](#clear-history)
+    - [`echo` (print a variable)](#echo-print-a-variable)
+      - [A short introduction to variables](#a-short-introduction-to-variables)
+  - [For loops](#for-loops)
+  - [Problem solving](#problem-solving)
+    - [Safety risks while looking for answers online](#safety-risks-while-looking-for-answers-online)
+  - [🚩 Red flags: Code to avoid 🚩](#-red-flags-code-to-avoid-)
+  - [Summary and cheat sheet](#summary-and-cheat-sheet)
+
+##  Welcome and Learning Objectives
 <!-- TODO: explain comment pound signs -->
 We are dedicated to equity-focused teaching. We will do our best to make the material accessible and transparent to all participants, regardless of background or system type. 
 Please feel free to let us know during the session that if some material is not accessible to you (commands/links not working, teaching too fast, etc.)
 
 This is where the table of contents will go.
 
-## Computer and file basics
+## 1. Computer and file basics
 This section will cover some of the basics of interacting with your computer through the command line. 
 ### Navigation
 The most common way to interact with your computer is through a GUI (Graphical User Interface). 
@@ -225,6 +256,36 @@ In this way, an absolute path can be an escape lever for you if you get lost.
 
 > [!TIP]
 > You can also call `pwd` on its own to display a full path for any location you find yourself in. 
+>
+> ### wild cards `*`
+
+What if we want to `ls` some, but not _all_ files in a directory? 
+<!-- You should be aware that one part of command line scripting is the manipulation of [regular expressions](https://en.wikipedia.org/wiki/Regular_expression), which are referred to as RegEx. 
+RegEx is complicated and implemented slightly differently depending on where you encounter it. 
+For now, it is enough to know that it forms the basis of matching and finding (and sometimes replacing) a specific pattern in a given text.
+For our purposes, an easy  -->
+<!-- FIXME need to read more about this, idk if this use of * is really technically regular expression. -->
+
+In this case we can use `*` as a matching character. 
+From `examplefiles/alexas_section/chloro/`, try:
+```bash
+ls -lah
+ls -lah *2.txt
+ls -lah rps*.txt
+```
+## 2. Creating and editing folders and files
+
+### `mkdir` (create a folder)
+This one is fairly simple!
+The command makes an empty directory.
+Just name your directory and you're good to go.
+
+```bash
+mkdir exampledir
+cd exampledir
+ls
+```
+
 
 ### `cat` 🐈 (concatenate and print)
 
@@ -244,100 +305,6 @@ After typing cat, you can press `[Tab]` to activate the autocomplete, which save
 You should essentially never be typing file names from memory, as this could result in trying to call a file that does not exist.
 
 <!-- FIXME need to add more once i generate example files -->
-
-
-### wild cards `*`
-
-What if we want to `cat` or `ls` some, but not _all_ files in a directory? 
-<!-- You should be aware that one part of command line scripting is the manipulation of [regular expressions](https://en.wikipedia.org/wiki/Regular_expression), which are referred to as RegEx. 
-RegEx is complicated and implemented slightly differently depending on where you encounter it. 
-For now, it is enough to know that it forms the basis of matching and finding (and sometimes replacing) a specific pattern in a given text.
-For our purposes, an easy  -->
-<!-- FIXME need to read more about this, idk if this use of * is really technically regular expression. -->
-
-In this case we can use `*` as a matching character. 
-From `examplefiles/alexas_section/chloro/`, try:
-```bash
-ls -lah
-ls -lah *2.txt
-ls -lah rps*.txt
-```
-
-
-### clear, history
-Here are some other useful basic commands.
-
-`clear` is possibly the simplest command you will learn today.
-It clears your screen.
-And it's named in a way that makes sense! 
-Nice!
-
-```bash
-clear
-```
-
-
-In the same vein, `history` will simply print the history of the commands you have run.
-
-```bash
-history 
-#this will show your command history
-history -c 
-#this will clear your history, but you shouldn't need to do this.
-```
-
-
-
-## More basic commands
-### `echo` (print a variable)
-<!-- FIXME complete this section-->
-
-`echo` is another one that pretty much does what it says on the tin!
-```bash
-echo "hello world\!"
-```
-when run, you should see something like this:
-```console
-alexas_section/chloro [main●] » echo "hello world\!"
-
-
-hello world!
-```
-
-`echo` can also be used to print variables that you've stored like so:
-
-```bash
-echo "hello world\!"
-
-my_var="hello everyone\!"
-echo $my_var
-```
-This is useful for when we don't want to type the same thing multiple times. 
-Setting a variable can be used for `strings`, which are essentially strings of words and are 
-
-#### A short introduction to variables
-<!-- https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-5.html -->
-Variables are a type of data that can be called again after they are declared.
-
-| Variable type  | Description | Example command |
-| ------------- | ------------- | ------------- | 
-| string  | a phrase consising of numbers, letters, spaces, or other characters  | `my_string="hello everyone\!" ; echo $my_string` 
-| number  | an integer or float that can be used in mathematical equations  | `my_num=4 ; echo $(( myv*2 )); my_float=3.5; echo $((my_float+2))`|
-<!-- could also talk about let and (( )) -->
-
->[!TIP]
-> When writing more than one line of code, you can use an **endline** character (`;`) to indicate a new line.
->The results of these lines will be the same, try it out!
->
->```bash
->my_var_a="my string is going to print soon!\!" ; echo $my_var
->```
->
->```bash
->my_var_b="my string will print after I echo it!\!"
-> echo $my_var
->```
-
 ### `touch` (create a file)
 <!-- FIXME complete this section-->
 This is an easy way to create files.
@@ -355,8 +322,7 @@ The .txt extension is good for right now, other formats carry certain syntax.
 <!-- cat will print any file text but use .txt since your OS will throw a fit trying to open it.  -->
 <!-- File extensions are fake. -->
 
-
-## `>>` and `>` (redirection)
+### `>>` and `>` (redirection)
 Now that we have our empty files, how do we add to them?
 The easiest way is to use redirection operators.
 In the same directory as before:
@@ -410,6 +376,7 @@ cat file5.txt
 **Knowledge check:** what is the difference between 
 `echo file5.txt`, `ls file5.txt`, and `cat file5.txt`? 
 Run each one yourself to check.
+
 
 ### `mv` (move and rename)
 <!-- FIXME complete this section-->
@@ -599,7 +566,91 @@ tail -n 2 Chloroplast_Genes.fa
 
 ```
 -->
-## Scripting, variables, loops, reading files
+
+
+
+
+## 3. Helpful commands, introduction to programming structures
+
+
+### clear, history
+Here are some other useful basic commands.
+
+`clear` is possibly the simplest command you will learn today.
+It clears your screen.
+And it's named in a way that makes sense! 
+Nice!
+
+```bash
+clear
+```
+
+
+In the same vein, `history` will simply print the history of the commands you have run.
+
+```bash
+history 
+#this will show your command history
+history -c 
+#this will clear your history, but you shouldn't need to do this.
+```
+
+
+
+### `echo` (print a variable)
+<!-- FIXME complete this section-->
+
+`echo` is another one that pretty much does what it says on the tin!
+```bash
+echo "hello world\!"
+```
+when run, you should see something like this:
+```console
+alexas_section/chloro [main●] » echo "hello world\!"
+
+
+hello world!
+```
+
+`echo` can also be used to print variables that you've stored like so:
+
+```bash
+echo "hello world\!"
+
+my_var="hello everyone\!"
+echo $my_var
+```
+This is useful for when we don't want to type the same thing multiple times. 
+Setting a variable can be used for `strings`, which are essentially strings of words and are 
+
+#### A short introduction to variables
+<!-- https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-5.html -->
+Variables are a type of data that can be called again after they are declared.
+
+| Variable type  | Description | Example command |
+| ------------- | ------------- | ------------- | 
+| string  | a phrase consising of numbers, letters, spaces, or other characters  | `my_string="hello everyone\!" ; echo $my_string` 
+| number  | an integer or float that can be used in mathematical equations  | `my_num=4 ; echo $(( myv*2 )); my_float=3.5; echo $((my_float+2))`|
+<!-- could also talk about let and (( )) -->
+
+>[!TIP]
+> When writing more than one line of code, you can use an **endline** character (`;`) to indicate a new line.
+>The results of these lines will be the same, try it out!
+>
+>```bash
+>my_var_a="my string is going to print soon!\!" ; echo $my_var
+>```
+>
+>```bash
+>my_var_b="my string will print after I echo it!\!"
+> echo $my_var
+>```
+
+
+
+
+
+## For loops
 
 When we have a command that we want to call multiple times, for multiple files, we can use a **loop** to complete the same action repeatedly.
 
@@ -607,6 +658,8 @@ This is useful when we have a large amount of files.
 
 Navigate to the `alexas_section/chloro` folder.
 Each file in this folder represents a gene.
+<!-- FIXME complete this section-->
+
 
 ## Problem solving
 <!-- FIXME complete this section-->
@@ -644,9 +697,9 @@ As a beginner, you should prioritize code that makes sense within your current u
 You may not be working with complex databases from day 1, but that's _totally fine_.
 
 
-This StackOverflow post is a gentle reminder that copying and pasting code (this particular example is in Python) from dubious sources can be a security risk:
+This article runs through some reasons why copying and pasting code can be a security risk:
 
-[https://meta.stackoverflow.com/questions/407049/blindly-copy-pasting-code-is-bad-a-gentle-reminder](https://meta.stackoverflow.com/questions/407049/blindly-copy-pasting-code-is-bad-a-gentle-reminder)
+[https://stackoverflow.blog/2019/11/26/copying-code-from-stack-overflow-you-might-be-spreading-security-vulnerabilities/](https://stackoverflow.blog/2019/11/26/copying-code-from-stack-overflow-you-might-be-spreading-security-vulnerabilities/)
 
 
 ## 🚩 Red flags: Code to avoid 🚩
@@ -701,7 +754,7 @@ A more destructive version of this tweet would say `/*`.
 <!-- You will get the most helpful resources from ... -->
 
 
-## Demonstration of the skills we put together
+<!-- ## Demonstration of the skills we put together -->
 <!-- FIXME complete this section
 In this example, you will use a line-separated `.txt` file to download some herbarium images.
 Each line in this file will have a link to a photo of an herbarium specimen from the Field Museum, which you can access by clicking the link. 

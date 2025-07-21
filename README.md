@@ -14,26 +14,53 @@ Our contact information is below:
 
 - Dr. Karolis Ramanauskas, University of Illinois Chicago, kraman2@uic.edu
 
+## Course goals
+![](https://blob.gifcities.org/gifcities/45UY5P3XCTNJLRO6I67GTSSBQ6YMFULP.gif)
+
+## Course material
+
+[Section 1:](https://github.com/karolisr/botany-2025-shell/blob/main/alexas_section.md)
+
+- Why command line? & learning objectives - Alexa (5 min) 
+
+- Navigation and file concepts (20 min) - Alexa
+
+- Creating and editing folders and files (20 min)  - Alexa
+
+- Helpful commands, introduction to programming structures (20 min)  - Alexa
 
 
 
-## First steps
 
-Before attending class, we request first that you attempt to open a terminal window.
+Section 2
+
+Section 3:
+
+
+
+## First steps: Hello world!
+
+If you're following along virtually, we request first that you attempt to open a terminal window.
 From here, you'll be prepared for the class. 
 Goal: open a terminal window and print a simple 'hello world'.
 
+
+### Mac/Linux
+
+Open "Terminal" in your applications folder.
+
+
 ### Windows
 
-Windows screenshot
+1. Please install `wsl` by running
+```
+wsl --install
+```
+and following the isntructions.
 
-### Mac
+2. Restart your PC.
 
-Mac screenshot
-
-### Linux
-
-Linux screenshot here
+3. Open the WSL app (penguin icon!).
 
 ### Now that you've opened your terminal...
 
@@ -49,24 +76,21 @@ Quick explanation:
 This step sets the variable called `STR` to equal (`=`) the string of characters `Hello world!`. Then, we can `echo` the contents of this variable by using `$` to specify that we are calling a variable.
 
 
-Questions to think about:
+Bonus questions:
 - What happens if you put other text into `STR`?
 - What if you try setting a different variable like `NAME`?
 - What happens if you forget to use `$`?
 
-## Conclusions
-
-Please reach out if you have issues with opening a terminal window, or if you got confused. 
-
-The material in the rest of the course can be accessed here:
-
-1. [Alexa's section](https://github.com/karolisr/botany-2025-shell/blob/main/alexas_section.md)
-2. [Keyi's section]()
-3. [Karolis' section]()
-
-
+## First steps:
+Download the first set of example files by running 
+```
+git clone https://github.com/karolisr/botany-2025-shell.git
+```
 
 ## Useful Links and Tips
 
-- [Use ShellCheck (editor plugin, or online)](https://www.shellcheck.net)
+- [ShellCheck (editor plugin, or online)](https://www.shellcheck.net)
 <!-- - [Keyboard shortcut code generator for Markdown (eg.: <kbd>⌘ Command</kbd> + <kbd>⌃ Control</kbd> + <kbd>⌥ Option</kbd> + <kbd>G</kbd>)](https://kbd.hsuan.xyz) -->
+- [Cheat-sheet](https://devhints.io/bash)
+
+- [Linux command line textbook](https://www.kea.nu/files/textbooks/humblesec/thelinuxcommandline.pdf)
