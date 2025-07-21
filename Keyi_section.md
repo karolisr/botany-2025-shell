@@ -1,12 +1,48 @@
 # Table of Contents <!-- omit in toc -->
 
- - [Learning Objectives](#learning-objectives)
-   - [References](#references)
- - [Working with Packages](#working-with-packages)
- - [Connecting with Remote Hosts](#connecting-with-remote-hosts)
- - [Setting Up the Environment](#setting-up-the-environment)
- - [Asking for help with AI](#asking-for-help-with-ai)
- - [Git](#git)
+- [Learning Objectives](#learning-objectives)
+  - [References](#references)
+- [Working with with commands/tools](#working-with-with-commandstools)
+  - [Identifying Commands](#identifying-commands)
+    - [`type` - Display a command's type](#type---display-a-commands-type)
+    - [`which` - Display an Executable's Location](#which---display-an-executables-location)
+  - [Getting a Command's Documentation](#getting-a-commands-documentation)
+    - [`help` - Get help from shell builtins (exclusive for linux?)](#help---get-help-from-shell-builtins-exclusive-for-linux)
+    - [`--help` - Display usage information](#--help---display-usage-information)
+    - [`man` - Display a program's manual page](#man---display-a-programs-manual-page)
+    - [`apropos` - Display appropriate commands](#apropos---display-appropriate-commands)
+    - [`whatis` - Display one-line manual page descriptions](#whatis---display-one-line-manual-page-descriptions)
+  - [Other helpful commands for package usage](#other-helpful-commands-for-package-usage)
+    - [`--version` - Display the installed version of the package](#--version---display-the-installed-version-of-the-package)
+    - [`alias` - Rename the package command in your system](#alias---rename-the-package-command-in-your-system)
+- [Connecting with Remote Hosts](#connecting-with-remote-hosts)
+  - [What is a remote host](#what-is-a-remote-host)
+  - [Checking network connection and remote host ip](#checking-network-connection-and-remote-host-ip)
+  - [Connect to remote hosts with `ssh`](#connect-to-remote-hosts-with-ssh)
+  - [`scp`](#scp)
+  - [`rsync`](#rsync)
+  - [Compare `scp` and `rsync`](#compare-scp-and-rsync)
+  - [Downloading files from the web and FTP sites with `wget`](#downloading-files-from-the-web-and-ftp-sites-with-wget)
+- [Setting Up the Environment](#setting-up-the-environment)
+  - [The Environment](#the-environment)
+  - [*compare with temperate variables too*](#compare-with-temperate-variables-too)
+    - [Viewing shell and enviroment variables with `printenv`, `set`, and `echo`](#viewing-shell-and-enviroment-variables-with-printenv-set-and-echo)
+    - [Other useful variables to know about:](#other-useful-variables-to-know-about)
+  - [`PATH`](#path)
+  - [**Configuration**](#configuration)
+  - [Conda Environment](#conda-environment)
+    - [Why `conda`?](#why-conda)
+    - [Anaconda vs Miniconda](#anaconda-vs-miniconda)
+    - [Where to start with `conda`?](#where-to-start-with-conda)
+- [Asking for help with AI](#asking-for-help-with-ai)
+  - [Comparing different AI tools for shell help](#comparing-different-ai-tools-for-shell-help)
+  - [Common prompts for GenAI](#common-prompts-for-genai)
+  - [How to navigate AI responses](#how-to-navigate-ai-responses)
+- [`Git`](#git)
+  - [What is `Git`](#what-is-git)
+  - [Defining terminologies](#defining-terminologies)
+  - [Common `Git` commands](#common-git-commands)
+  
 
 ## Learning Objectives
 > We are dedicated to equity-focused teaching. We will do our best to make the material accessible and transparent to all participants, regardless of background or system type. Please feel free to let us know during the session that if some material is not accessible to you (commands/links not working, teaching too fast, etc.)
@@ -19,7 +55,7 @@ Shotts, W. (2019). *The Linux command line: a complete introduction.* No Starch 
 
 Tool Development course material from Dr. Cristina Mitrea at the University of Michigan
 
-## Working with Packages
+## Working with with commands/tools
 
 ### Identifying Commands
 > do all of these with 2 different commands to see a variety of usage
