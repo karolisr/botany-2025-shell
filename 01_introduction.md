@@ -31,14 +31,14 @@ cat Chloroplast_Genes.fa | while IFS= read -r line; do if [[ $line == \>* ]]; th
   - [Problem solving](#problem-solving)
     - [Safety risks while looking for answers online](#safety-risks-while-looking-for-answers-online)
   - [🚩 Red flags: Code to avoid 🚩](#-red-flags-code-to-avoid-)
-  - [Summary and cheat sheet](#summary-and-cheat-sheet)
+  - [Part 1.1 recap](#part-11-recap)
+  - [Part 1.2 recap](#part-12-recap)
+  - [Part 1.3 recap](#part-13-recap)
 
 ##  Welcome and Learning Objectives
 <!-- TODO: explain comment pound signs -->
 We are dedicated to equity-focused teaching. We will do our best to make the material accessible and transparent to all participants, regardless of background or system type. 
 Please feel free to let us know during the session that if some material is not accessible to you (commands/links not working, teaching too fast, etc.)
-
-This is where the table of contents will go.
 
 ## 1. Computer and file basics
 This section will cover some of the basics of interacting with your computer through the command line. 
@@ -293,7 +293,7 @@ ls
 It is most commonly used for the first purpose.
 
 
-To try it out, navigate to `examplefiles/alexas_section/chloro/` from the main github directory.
+To try it out, navigate to the `/intro_to_CLI_examples` folder.
 
 Now try out `cat` on some files here.
 
@@ -381,7 +381,7 @@ Run each one yourself to check.
 ### `mv` (move and rename)
 <!-- FIXME complete this section-->
 
-Now go up a directory and find the `chloro` folder. 
+Now find the `chloro` folder. 
 ```bash
 cd ../chloro/
 man mv
@@ -446,6 +446,19 @@ mkdir ps
 cp ps*.txt ps # copies all files starting with "ps" and ending with ".txt" to the new ps directory
 ```
 ### `rm` (remove file/directory)
+This command will **remove** files. 
+However, it does not remove files by sending them to a "Trash" folder first.
+File deletion with `rm` is functionally a permanent deletion.
+Therefore, we need to be extra careful when using it.
+Let's use it to clean up some files and folders in this duplicated `chloro` folder.
+
+We use the `-i` option here to ensure that we get an extra layer of confirmation before we delete files.
+
+The `-r` option allows us to delete recursively (aka everything within a folder will be deleted along with the folder).
+```bash
+rm -ri ps
+rm -i ycf*
+```
 
 
 ### `nano` (file editor)
@@ -495,10 +508,11 @@ It does have a short summary of commands displayed.
 `vim` has a special set of commands and shortcuts that you will need to memorize if you plan on becoming a regular `vim` user.
 Here are a few that will get you started off the bat:
 
-| Command  | Short description of what it does |
+| vim Command  | Short description of what it does |
 | ------------- | ------------- |
 | `:q`  | exit vim  |
 | `:help`  | for on-line help  |
+| `:i`  | for on-line help  |
 
 
 First try these:
@@ -800,32 +814,39 @@ Now if we have the file names: -->
 
 
 
-## Summary and cheat sheet
-In this lesson, we covered these commands:
-| Command  | Short description of what it does |
-| ------------- | ------------- |
-| `ls`  | Content  |
-| `man`  | Content  | 
-| `cd`  | Content  | 
-| `cat`  | Content  | 
-|  `clear`  | Content  | 
-| `history`  | Content  | 
-| `echo`  | Content  | 
-| `touch` | Content | 
-| `mv` | Content | 
-| `cp` | Content | 
-| `nano` | Content | 
-| `vim` | Content | 
-| Content | Content | 
-| Content | Content | 
-| Content | Content | 
-| Content | Content | 
-| Content | Content | 
-| Content | Content | 
-| Content | Content | 
-| Content | Content | 
-| Content | Content | 
-| Content | Content | 
-| Content | Content | 
-| Content | Content | 
-| Content | Content | 
+## Part 1.1 recap
+| Command  | Short description of what it does | Common uses/reminders  | 
+| ------------- | ------------- | ------------- |
+| `ls`  | List files/folders  |    `ls -lah` (human readable format with more info) | 
+| `man`  | Manual  |   `man ls` (show manual for `ls` command) ; Q to quit | 
+| `cd`  | Change directory  |  `cd ..` (`cd` up one folder)  | 
+| shortcuts  | too many to list! They make your life easier  | Up/down on keyboard to scroll thru history, tab to autocomplete  | 
+|  file paths  | Navigate around relative to current location  | `.` (current directory),  `..` (up one directory)  | 
+| `*` (wild cards)  | Select multiple files/folders that match a pattern  | `ls *.txt` (list all files which end in `.txt` in this directory)  | 
+
+
+
+## Part 1.2 recap
+| Command  | Short description of what it does | Common uses/reminders  | 
+| ------------- | ------------- | ------------- |
+| `ls`  | List files/folders  |    `ls -lah` (human readable format with more info) | 
+| `man`  | Manual  |   `man ls` (show manual for `ls` command) ; Q to quit | 
+| `cd`  | Content  | Content  | 
+| shortcuts  | Content  | Content  | 
+|  file paths  | Content  | Content  | 
+| `*` (wild cards)  | Content  | Content  | 
+| `cp` | Content |  Content  | 
+| `nano` | Content |  Content  | 
+
+
+## Part 1.3 recap
+| Command  | Short description of what it does | Common uses/reminders  | 
+| ------------- | ------------- | ------------- |
+| `ls`  | List files/folders  |    `ls -lah` (human readable format with more info) | 
+| `man`  | Manual  |   `man ls` (show manual for `ls` command) ; Q to quit | 
+| `cd`  | Content  | Content  | 
+| shortcuts  | Content  | Content  | 
+|  file paths  | Content  | Content  | 
+| `*` (wild cards)  | Content  | Content  | 
+| `cp` | Content |  Content  | 
+| `nano` | Content |  Content  | 
