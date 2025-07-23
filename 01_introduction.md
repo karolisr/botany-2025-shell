@@ -829,24 +829,24 @@ Now if we have the file names: -->
 ## Part 1.2 recap
 | Command  | Short description of what it does | Common uses/reminders  | 
 | ------------- | ------------- | ------------- |
-| `ls`  | List files/folders  |    `ls -lah` (human readable format with more info) | 
-| `man`  | Manual  |   `man ls` (show manual for `ls` command) ; Q to quit | 
-| `cd`  | Content  | Content  | 
-| shortcuts  | Content  | Content  | 
-|  file paths  | Content  | Content  | 
-| `*` (wild cards)  | Content  | Content  | 
-| `cp` | Content |  Content  | 
-| `nano` | Content |  Content  | 
+| `mkdir`  | Make folders  |    `mkdir exampledir` | 
+| `touch` | Make empty files |  `touch examplefile.txt`  | 
+| `cat` | Concatenate (print file contents) |  `cat Chloroplast_Genes.fa`  | 
+| `>, >>` | Redirects standard output to a file |  `echo "text" >> file1.txt`  | 
+| `mv` | Move folder/file |  `mv (move) filetomove locationtomove` -- can be used to rename files/folders  | 
+| `cp` | Copy folder/file |  `cp originalfile locationofcopy`, ` -R` option makes it folder-compatible  | 
+| `rm` | Remove file/folder |  `rm -i filetoremove`, `-r` makes this folder-compatible | 
+| `nano` | File editor |  `nano filetoedit.txt`, can also be used to create files | 
+| `head` | Print file head |  `head -n 10 examplefile.txt`, `-n` specifies number of lines, default without option is 5  | 
+| `tail` | Print file end |  `tail -n 12 examplefile.txt`, `-n` specifies number of lines, default without option is 5  |
+
 
 
 ## Part 1.3 recap
 | Command  | Short description of what it does | Common uses/reminders  | 
 | ------------- | ------------- | ------------- |
-| `ls`  | List files/folders  |    `ls -lah` (human readable format with more info) | 
-| `man`  | Manual  |   `man ls` (show manual for `ls` command) ; Q to quit | 
-| `cd`  | Content  | Content  | 
-| shortcuts  | Content  | Content  | 
-|  file paths  | Content  | Content  | 
-| `*` (wild cards)  | Content  | Content  | 
-| `cp` | Content |  Content  | 
-| `nano` | Content |  Content  | 
+| `clear` | Clear screen |   Can also press <kbd>CTRL</kbd>+<kbd>L</kbd>  | 
+| `history` | Show command history |  `history -3` prints 3 past commands,  `history -c` to clear| 
+| `echo` | Print contents of a variable |  `echo 'helloworld'` or a variable: `echo $SHELL`, either one you have set or a built-in variable | 
+| `for loop` | Perform actions repeatedly on specific files |  `for x in item1 item2 item3; do command; second optional command; done;` (`;` is a line separator) | 
+
