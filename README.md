@@ -10,12 +10,15 @@ Our contact information is below:
 
 - Alexa Tyszka (she/her), University of Illinois Chicago, atyszka2@uic.edu
 
-- Keyi Feng, University of Michigan, fky@umich.edu
+- Keyi Feng (she/her), University of Michigan, fky@umich.edu
 
 - Dr. Karolis Ramanauskas, University of Illinois Chicago, kraman2@uic.edu
 
 ## Course goals
 ![](https://blob.gifcities.org/gifcities/45UY5P3XCTNJLRO6I67GTSSBQ6YMFULP.gif)
+- Participants will be able to understand in general how the shell operates
+- Participants will be able to execute all listed operations in the course material in the command line on their laptop
+- When encountering a new package and/or error in the future, participants will know how to get familiar with the software and how to find ways to resolve the error
 
 ## Course material
 
@@ -29,12 +32,12 @@ Our contact information is below:
 
 - Helpful commands, introduction to programming structures (20 min)  - Alexa
 
-
-
-
 Section 2
 
 Section 3:
+- Working with commands/tools (20 min) - Keyi
+- Setting Up the Environment (20 min) - Keyi
+- Connecting with Remote Hosts (20 min) - Keyi
 
 
 
