@@ -34,7 +34,7 @@ Our contact information is below:
 
 Section 2
 
-Section 3:
+[Section 3:](https://github.com/karolisr/botany-2025-shell/blob/main/03.md)
 - Working with commands/tools (20 min) - Keyi
 - Setting Up the Environment (20 min) - Keyi
 - Connecting with Remote Hosts (20 min) - Keyi
