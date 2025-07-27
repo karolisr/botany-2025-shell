@@ -5,6 +5,7 @@ cat Chloroplast_Genes.fa | while IFS= read -r line; do if [[ $line == \>* ]]; th
 
 - [Introduction to basic command line and file navigation](#introduction-to-basic-command-line-and-file-navigation)
   - [Welcome and Learning Objectives](#welcome-and-learning-objectives)
+  - [Link to slides](#link-to-slides)
   - [1. Computer and file basics](#1-computer-and-file-basics)
     - [Navigation](#navigation)
     - [`ls` (list files)](#ls-list-files)
@@ -40,6 +41,9 @@ cat Chloroplast_Genes.fa | while IFS= read -r line; do if [[ $line == \>* ]]; th
 <!-- TODO: explain comment pound signs -->
 We are dedicated to equity-focused teaching. We will do our best to make the material accessible and transparent to all participants, regardless of background or system type. 
 Please feel free to let us know during the session that if some material is not accessible to you (commands/links not working, teaching too fast, etc.)
+
+## Link to slides
+[Slides for the workshop can be found here!](https://docs.google.com/presentation/d/1LUYCA7GLE8YVXguwtqXlbDZiUxyyHCIFldf7ntvY2Gg/edit?usp=sharing)
 
 ## 1. Computer and file basics
 This section will cover some of the basics of interacting with your computer through the command line. 
