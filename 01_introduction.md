@@ -28,12 +28,13 @@ cat Chloroplast_Genes.fa | while IFS= read -r line; do if [[ $line == \>* ]]; th
     - [`echo` (print a variable)](#echo-print-a-variable)
       - [A short introduction to variables](#a-short-introduction-to-variables)
   - [For loops](#for-loops)
-  - [Problem solving](#problem-solving)
-    - [Safety risks while looking for answers online](#safety-risks-while-looking-for-answers-online)
-  - [🚩 Red flags: Code to avoid 🚩](#-red-flags-code-to-avoid-)
+- [Recaps/cheat sheets](#recapscheat-sheets)
   - [Part 1.1 recap](#part-11-recap)
   - [Part 1.2 recap](#part-12-recap)
   - [Part 1.3 recap](#part-13-recap)
+- [Extras: Problem solving](#extras-problem-solving)
+    - [Safety risks while looking for answers online](#safety-risks-while-looking-for-answers-online)
+  - [🚩 Red flags: Code to avoid 🚩](#-red-flags-code-to-avoid-)
 
 ##  Welcome and Learning Objectives
 <!-- TODO: explain comment pound signs -->
@@ -105,16 +106,16 @@ Try them out!
 | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  | -->
 
-| Option  | Long form |What it does|
-| ------------- | ------------- | ------------- |
-| `-l`  |       | use a long listing format  |
-| `-a`  | `--all` |  do not ignore entries starting with `.` (show otherwise hidden files) |
-|`-m`||fill width with a comma separated list of entries|
-|`-r`|`--reverse`|Reverse order while sorting.|
-|`-t`||sort by time, newest first|
-|`-o`||Use long listing format without group info.|
-|`-x`||list entries by lines instead of by columns|
-|`-1`||list one file per line|
+| Option   |What it does|
+| -------------  | ------------- |
+| `-l`   | use a long listing format  |
+| `-a`   |  do not ignore entries starting with `.` (show otherwise hidden files) |
+|`-m`|fill width with a comma separated list of entries|
+|`-r`|Reverse order while sorting.|
+|`-t`|sort by time, newest first|
+|`-o`|Use long listing format without group info.|
+|`-x`|list entries by lines instead of by columns|
+|`-1`|list one file per line|
 <!-- ||`--help`|display help and exit| -->
 
 You can combine options, too, by chaining together letters. You cannot chain long forms. Some options depend on other options, so must be used in tandem.
@@ -675,7 +676,45 @@ Each file in this folder represents a gene.
 <!-- FIXME complete this section-->
 
 
-## Problem solving
+# Recaps/cheat sheets
+## Part 1.1 recap
+| Command  | Short description of what it does | Common uses/reminders  | 
+| ------------- | ------------- | ------------- |
+| `ls`  | List files/folders  |    `ls -lah` (human readable format with more info) | 
+| `man`  | Manual  |   `man ls` (show manual for `ls` command) ; Q to quit | 
+| `cd`  | Change directory  |  `cd ..` (`cd` up one folder)  | 
+| shortcuts  | too many to list! They make your life easier  | Up/down on keyboard to scroll thru history, tab to autocomplete  | 
+|  file paths  | Navigate around relative to current location  | `.` (current directory),  `..` (up one directory)  | 
+| `*` (wild cards)  | Select multiple files/folders that match a pattern  | `ls *.txt` (list all files which end in `.txt` in this directory)  | 
+
+
+
+## Part 1.2 recap
+| Command  | Short description of what it does | Common uses/reminders  | 
+| ------------- | ------------- | ------------- |
+| `mkdir`  | Make folders  |    `mkdir exampledir` | 
+| `touch` | Make empty files |  `touch examplefile.txt`  | 
+| `cat` | Concatenate (print file contents) |  `cat Chloroplast_Genes.fa`  | 
+| `>, >>` | Redirects standard output to a file |  `echo "text" >> file1.txt`  | 
+| `mv` | Move folder/file |  `mv (move) filetomove locationtomove` -- can be used to rename files/folders  | 
+| `cp` | Copy folder/file |  `cp originalfile locationofcopy`, ` -R` option makes it folder-compatible  | 
+| `rm` | Remove file/folder |  `rm -i filetoremove`, `-r` makes this folder-compatible | 
+| `nano` | File editor |  `nano filetoedit.txt`, can also be used to create files | 
+| `head` | Print file head |  `head -n 10 examplefile.txt`, `-n` specifies number of lines, default without option is 5  | 
+| `tail` | Print file end |  `tail -n 12 examplefile.txt`, `-n` specifies number of lines, default without option is 5  |
+
+
+
+## Part 1.3 recap
+| Command  | Short description of what it does | Common uses/reminders  | 
+| ------------- | ------------- | ------------- |
+| `clear` | Clear screen |   Can also press <kbd>CTRL</kbd>+<kbd>L</kbd>  | 
+| `history` | Show command history |  `history -3` prints 3 past commands,  `history -c` to clear| 
+| `echo` | Print contents of a variable |  `echo 'helloworld'` or a variable: `echo $SHELL`, either one you have set or a built-in variable | 
+| `for loop` | Perform actions repeatedly on specific files |  `for x in item1 item2 item3; do command; second optional command; done;` (`;` is a line separator) | 
+
+
+# Extras: Problem solving
 <!-- FIXME complete this section-->
 
 ![](https://preview.redd.it/r67fvj6jycj21.jpg?auto=webp&s=555a489422ead2016d5592a2b70c8a4bdb6c7237)
@@ -811,42 +850,4 @@ head -n 4 multimedia.txt | tail -n +2 |  awk '{print $4}'  | while read link; do
 ```
 
 Now if we have the file names: -->
-
-
-
-## Part 1.1 recap
-| Command  | Short description of what it does | Common uses/reminders  | 
-| ------------- | ------------- | ------------- |
-| `ls`  | List files/folders  |    `ls -lah` (human readable format with more info) | 
-| `man`  | Manual  |   `man ls` (show manual for `ls` command) ; Q to quit | 
-| `cd`  | Change directory  |  `cd ..` (`cd` up one folder)  | 
-| shortcuts  | too many to list! They make your life easier  | Up/down on keyboard to scroll thru history, tab to autocomplete  | 
-|  file paths  | Navigate around relative to current location  | `.` (current directory),  `..` (up one directory)  | 
-| `*` (wild cards)  | Select multiple files/folders that match a pattern  | `ls *.txt` (list all files which end in `.txt` in this directory)  | 
-
-
-
-## Part 1.2 recap
-| Command  | Short description of what it does | Common uses/reminders  | 
-| ------------- | ------------- | ------------- |
-| `mkdir`  | Make folders  |    `mkdir exampledir` | 
-| `touch` | Make empty files |  `touch examplefile.txt`  | 
-| `cat` | Concatenate (print file contents) |  `cat Chloroplast_Genes.fa`  | 
-| `>, >>` | Redirects standard output to a file |  `echo "text" >> file1.txt`  | 
-| `mv` | Move folder/file |  `mv (move) filetomove locationtomove` -- can be used to rename files/folders  | 
-| `cp` | Copy folder/file |  `cp originalfile locationofcopy`, ` -R` option makes it folder-compatible  | 
-| `rm` | Remove file/folder |  `rm -i filetoremove`, `-r` makes this folder-compatible | 
-| `nano` | File editor |  `nano filetoedit.txt`, can also be used to create files | 
-| `head` | Print file head |  `head -n 10 examplefile.txt`, `-n` specifies number of lines, default without option is 5  | 
-| `tail` | Print file end |  `tail -n 12 examplefile.txt`, `-n` specifies number of lines, default without option is 5  |
-
-
-
-## Part 1.3 recap
-| Command  | Short description of what it does | Common uses/reminders  | 
-| ------------- | ------------- | ------------- |
-| `clear` | Clear screen |   Can also press <kbd>CTRL</kbd>+<kbd>L</kbd>  | 
-| `history` | Show command history |  `history -3` prints 3 past commands,  `history -c` to clear| 
-| `echo` | Print contents of a variable |  `echo 'helloworld'` or a variable: `echo $SHELL`, either one you have set or a built-in variable | 
-| `for loop` | Perform actions repeatedly on specific files |  `for x in item1 item2 item3; do command; second optional command; done;` (`;` is a line separator) | 
 

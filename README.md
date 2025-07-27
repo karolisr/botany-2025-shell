@@ -20,19 +20,20 @@ Our contact information is below:
 - Participants will be able to execute all listed operations in the course material in the command line on their laptop
 - When encountering a new package and/or error in the future, participants will know how to get familiar with the software and how to find ways to resolve the error
 
-## Course material
+## Course outline
 
-[Section 1:](https://github.com/karolisr/botany-2025-shell/blob/main/alexas_section.md)
+[Section 1:](https://github.com/karolisr/botany-2025-shell/blob/main/01_introduction.md)
 
 - Why command line? & learning objectives - Alexa (5 min) 
 
-- Navigation and file concepts (20 min) - Alexa
+- Navigation and file concepts (40 min) - Alexa
 
 - Creating and editing folders and files (20 min)  - Alexa
 
 - Helpful commands, introduction to programming structures (20 min)  - Alexa
 
-Section 2
+[Section 2: Karolis](https://github.com/karolisr/botany-2025-shell/blob/main/02.md)
+
 
 [Section 3:](https://github.com/karolisr/botany-2025-shell/blob/main/03.md)
 - Working with commands/tools (20 min) - Keyi
@@ -41,11 +42,13 @@ Section 2
 
 
 
-## First steps: Hello world!
+## First steps!
 
-If you're following along virtually, we request first that you attempt to open a terminal window.
+If you're following along virtually, this is a long form instruction on setting up a terminal window for the couse.
 From here, you'll be prepared for the class. 
 Goal: open a terminal window and print a simple 'hello world'.
+
+For in class participants, you can copy and paste the `wsl` commands and follow along in class.
 
 
 ### Mac/Linux
@@ -65,9 +68,9 @@ and following the isntructions.
 
 3. Open the WSL app (penguin icon!).
 
-### Now that you've opened your terminal...
+## Now that you've opened your terminal...
 
-Try typing or copying and pasting these lines into the terminal window.
+<!-- Try typing or copying and pasting these lines into the terminal window.
 
 ```bash
 STR="Hello world!"
@@ -76,19 +79,22 @@ echo $STR
 
 Quick explanation: 
 
-This step sets the variable called `STR` to equal (`=`) the string of characters `Hello world!`. Then, we can `echo` the contents of this variable by using `$` to specify that we are calling a variable.
+This step sets the variable called `STR` to equal (`=`) the string of characters `Hello world!`. Then, we can `echo` the contents of this variable by using `$` to specify that we are calling a variable. -->
 
-
+<!-- 
 Bonus questions:
 - What happens if you put other text into `STR`?
 - What if you try setting a different variable like `NAME`?
-- What happens if you forget to use `$`?
+- What happens if you forget to use `$`? -->
 
-## First steps:
-Download the first set of example files by running 
+Download the first set of example files by running: 
 ```
+which git
+
 git clone https://github.com/karolisr/botany-2025-shell.git
 ```
+[Now you can begin in Section 1!](https://github.com/karolisr/botany-2025-shell/blob/main/01_introduction.md)
+
 
 ## Useful Links and Tips
 
