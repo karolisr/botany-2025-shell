@@ -48,7 +48,7 @@ If you're following along virtually, this is a long form instruction on setting 
 From here, you'll be prepared for the class. 
 Goal: open a terminal window and print a simple 'hello world'.
 
-For in class participants, you can copy and paste the `wsl` commands and follow along in class.
+For in class Windows participants, you can copy and paste the `wsl` commands and follow along in class.
 
 
 ### Mac/Linux
