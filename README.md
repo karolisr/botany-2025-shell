@@ -15,7 +15,7 @@ Our contact information is below:
 - Dr. Karolis Ramanauskas, University of Illinois Chicago, kraman2@uic.edu
 
 ## Course goals
-![](https://blob.gifcities.org/gifcities/45UY5P3XCTNJLRO6I67GTSSBQ6YMFULP.gif)
+<!-- ![](https://blob.gifcities.org/gifcities/45UY5P3XCTNJLRO6I67GTSSBQ6YMFULP.gif) -->
 - Participants will be able to understand in general how the shell operates
 - Participants will be able to execute all listed operations in the course material in the command line on their laptop
 - When encountering a new package and/or error in the future, participants will know how to get familiar with the software and how to find ways to resolve the error
